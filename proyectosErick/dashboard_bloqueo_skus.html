@@ -8,22 +8,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --bg:#F4F3EF;--surface:#FFFFFF;--border:#E2E0DA;--border2:#C8C6BF;
-  --text:#1A1916;--text2:#6B6962;--text3:#9E9C96;
-  --green:#1BA85D;--green-bg:#D9F4E8;--green-dk:#0E6637;
-  --blue:#101E8E;--blue-bg:#F0EFFA;
-  --amber:#C8970A;--amber-bg:#FEF8E0;--amber-dk:#7A5C00;
-  --gray:#5F5E5A;--gray-bg:#EEEDEA;
-  --red-bg:#FDEAEA;--red-dk:#A32D2D;
-  --orange:#FF6400;--radius:10px;--radius-sm:6px;
-}
+:root{--bg:#F4F3EF;--surface:#FFFFFF;--border:#E2E0DA;--border2:#C8C6BF;--text:#1A1916;--text2:#6B6962;--text3:#9E9C96;--green:#1BA85D;--green-bg:#D9F4E8;--green-dk:#0E6637;--blue:#101E8E;--blue-bg:#F0EFFA;--amber:#C8970A;--amber-bg:#FEF8E0;--amber-dk:#7A5C00;--gray:#5F5E5A;--gray-bg:#EEEDEA;--red-bg:#FDEAEA;--red-dk:#A32D2D;--orange:#FF6400;--radius:10px;--radius-sm:6px;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;}
 .topbar{background:var(--blue);color:#fff;padding:0 36px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .topbar-left{display:flex;align-items:center;gap:14px;}
 .topbar-logo{width:34px;height:34px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;}
-.topbar-name{font-size:15px;font-weight:500;}
-.topbar-sub{font-size:11px;opacity:.55;margin-top:1px;}
+.topbar-name{font-size:15px;font-weight:500;}.topbar-sub{font-size:11px;opacity:.55;margin-top:1px;}
 .topbar-right{display:flex;align-items:center;gap:10px;}
 .topbar-pill{background:rgba(255,255,255,.15);padding:4px 12px;border-radius:99px;font-size:11px;font-weight:500;}
 .topbar-date{font-size:12px;opacity:.45;font-family:'DM Mono',monospace;}
@@ -38,15 +28,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .mc.active-done{border-color:var(--green);background:var(--green-bg);}
 .mc.active-proc{border-color:var(--amber);background:var(--amber-bg);}
 .mc.active-pend{border-color:var(--border2);background:var(--gray-bg);}
-.mc-all::after{background:var(--blue);}
-.mc-done::after{background:var(--green);}
-.mc-proc::after{background:var(--amber);}
-.mc-pend::after{background:var(--border2);}
+.mc-all::after{background:var(--blue);}.mc-done::after{background:var(--green);}.mc-proc::after{background:var(--amber);}.mc-pend::after{background:var(--border2);}
 .mc-label{font-size:11px;font-weight:500;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
 .mc-val{font-size:30px;font-weight:600;letter-spacing:-1px;}
-.mc-val.blue{color:var(--blue);}
-.mc-val.green{color:var(--green);}
-.mc-val.amber{color:var(--amber);}
+.mc-val.blue{color:var(--blue);}.mc-val.green{color:var(--green);}.mc-val.amber{color:var(--amber);}
 .mc-sub{font-size:11px;color:var(--text3);margin-top:5px;}
 .mc-bar{height:4px;background:var(--border);border-radius:99px;margin-top:10px;overflow:hidden;}
 .mc-bar-fill{height:100%;border-radius:99px;}
@@ -59,10 +44,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .alert-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:.5px solid var(--border);}
 .alert-item:last-child{border-bottom:none;}
 .alert-ico{width:30px;height:30px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;}
-.a-warn{background:var(--amber-bg);}
-.a-ok{background:var(--green-bg);}
-.a-risk{background:var(--red-bg);}
-.a-info{background:var(--blue-bg);}
+.a-warn{background:var(--amber-bg);}.a-ok{background:var(--green-bg);}.a-risk{background:var(--red-bg);}.a-info{background:var(--blue-bg);}
 .alert-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px;}
 .alert-body{font-size:12px;color:var(--text2);line-height:1.4;}
 .task-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:22px;}
@@ -81,17 +63,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .b-pend{background:var(--gray-bg);color:var(--gray);}
 .b-blue{background:var(--blue-bg);color:var(--blue);}
 .b-green{background:var(--green-bg);color:var(--green-dk);}
-.task-comment{font-size:11px;color:var(--text2);}
+.task-comment{font-size:11px;color:var(--text2);line-height:1.4;}
 .date-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:5px;}
 .date-chip{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;color:var(--blue);background:var(--blue-bg);padding:3px 10px;border-radius:99px;}
 .date-chip.no-date{color:var(--text3);background:var(--gray-bg);}
 .weeks-chip{font-size:11px;color:var(--text2);background:var(--gray-bg);padding:3px 9px;border-radius:99px;}
-.date-sep{font-size:11px;color:var(--text3);}
 .mini-bar-bg{height:4px;background:var(--border);border-radius:99px;margin-top:8px;overflow:hidden;}
 .mini-bar-fill{height:100%;border-radius:99px;}
-.bar-done{background:var(--green);}
-.bar-proc{background:var(--amber);}
-.bar-pend{background:var(--border2);}
+.bar-done{background:var(--green);}.bar-proc{background:var(--amber);}.bar-pend{background:var(--border2);}
 .empty-msg{text-align:center;padding:2.5rem 0;font-size:13px;color:var(--text3);display:none;}
 .footer{text-align:center;font-size:11px;color:var(--text3);margin-top:40px;padding-top:20px;border-top:1px solid var(--border);}
 @media(max-width:700px){.metrics{grid-template-columns:repeat(2,1fr);}.mid{grid-template-columns:1fr;}}
@@ -117,27 +96,27 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="metrics">
     <div class="mc mc-all active-all" onclick="filter('all',this)">
       <div class="mc-label">Total tareas</div>
-      <div class="mc-val blue">8</div>
+      <div class="mc-val blue">7</div>
       <div class="mc-sub">SKUs descontinuados</div>
       <div class="mc-bar"><div class="mc-bar-fill" style="width:100%;background:var(--blue);"></div></div>
     </div>
     <div class="mc mc-done" onclick="filter('done',this)">
       <div class="mc-label">Completadas</div>
-      <div class="mc-val green">2</div>
-      <div class="mc-sub">25% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:25%;background:var(--green);"></div></div>
+      <div class="mc-val green">1</div>
+      <div class="mc-sub">14% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:14%;background:var(--green);"></div></div>
     </div>
     <div class="mc mc-proc" onclick="filter('proc',this)">
       <div class="mc-label">En proceso</div>
-      <div class="mc-val amber">2</div>
-      <div class="mc-sub">25% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:25%;background:var(--amber);"></div></div>
+      <div class="mc-val amber">1</div>
+      <div class="mc-sub">14% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:14%;background:var(--amber);"></div></div>
     </div>
     <div class="mc mc-pend" onclick="filter('pend',this)">
       <div class="mc-label">Pendientes</div>
-      <div class="mc-val">4</div>
-      <div class="mc-sub">50% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:50%;background:var(--border2);"></div></div>
+      <div class="mc-val">5</div>
+      <div class="mc-sub">72% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:72%;background:var(--border2);"></div></div>
     </div>
   </div>
 
@@ -148,9 +127,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         <canvas id="donut"></canvas>
       </div>
       <div class="legend-row">
-        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (2) — 25%</div>
-        <div class="leg"><div class="leg-dot" style="background:#C8970A;"></div>En proceso (2) — 25%</div>
-        <div class="leg"><div class="leg-dot" style="background:#C8C6BF;"></div>Pendiente (4) — 50%</div>
+        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (1) — 14%</div>
+        <div class="leg"><div class="leg-dot" style="background:#C8970A;"></div>En proceso (1) — 14%</div>
+        <div class="leg"><div class="leg-dot" style="background:#C8C6BF;"></div>Pendiente (5) — 72%</div>
       </div>
     </div>
     <div class="card">
@@ -189,28 +168,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="task-card">
     <div class="task-card-header">
       <div class="card-title" style="margin-bottom:0;">Tareas del proyecto</div>
-      <div class="task-count" id="task-count">9 tareas</div>
+      <div class="task-count" id="task-count">7 tareas</div>
     </div>
     <div id="task-list">
 
-      <div class="task-row" data-s="proc">
-        <span class="task-num">01</span>
-        <div class="task-body">
-          <div class="task-name">Publicar versión 1 del dashboard</div>
-          <div class="date-row">
-            <span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>23 feb – 23 mar 2026</span>
-            <span class="weeks-chip">4 semanas</span>
-          </div>
-          <div class="task-meta-row">
-            <span class="badge b-blue">Erick</span>
-            <span class="badge b-proc">En proceso</span>
-          </div>
-          <div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:50%;"></div></div>
-        </div>
-      </div>
-
       <div class="task-row" data-s="done">
-        <span class="task-num">02</span>
+        <span class="task-num">01</span>
         <div class="task-body">
           <div class="task-name">Realizar sesión con Pablo Gomez</div>
           <div class="date-row">
@@ -227,7 +190,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       </div>
 
       <div class="task-row" data-s="proc">
-        <span class="task-num">03</span>
+        <span class="task-num">02</span>
         <div class="task-body">
           <div class="task-name">Marca de borrado</div>
           <div class="date-row">
@@ -243,9 +206,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         </div>
       </div>
 
-
       <div class="task-row" data-s="pend">
-        <span class="task-num">04</span>
+        <span class="task-num">03</span>
         <div class="task-body">
           <div class="task-name">Prueba y demostración de funcionamiento</div>
           <div class="date-row">
@@ -262,7 +224,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       </div>
 
       <div class="task-row" data-s="pend">
-        <span class="task-num">05</span>
+        <span class="task-num">04</span>
         <div class="task-body">
           <div class="task-name">Coordinar con base de datos cómo se va a operar</div>
           <div class="date-row">
@@ -279,7 +241,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       </div>
 
       <div class="task-row" data-s="pend">
-        <span class="task-num">06</span>
+        <span class="task-num">05</span>
         <div class="task-body">
           <div class="task-name">Validar el proceso para aplicar la marca de borrado</div>
           <div class="date-row">
@@ -296,7 +258,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       </div>
 
       <div class="task-row" data-s="pend">
-        <span class="task-num">07</span>
+        <span class="task-num">06</span>
         <div class="task-body">
           <div class="task-name">Socializar el procedimiento con BD</div>
           <div class="date-row">
@@ -313,9 +275,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       </div>
 
       <div class="task-row" data-s="pend">
-        <span class="task-num">08</span>
+        <span class="task-num">07</span>
         <div class="task-body">
-          <div class="task-name">Prueba al tener la funcionalidad lista</div>
+          <div class="task-name">Al tener la funcionalidad</div>
           <div class="date-row">
             <span class="date-chip no-date"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Depende de SAP QA</span>
           </div>
@@ -323,7 +285,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
             <span class="badge b-pend">—</span>
             <span class="badge b-pend">Pendiente</span>
           </div>
-          <div class="task-comment">Consultar con SAP QA, poder ver el funcionamiento y definir el flujo para socializarlo.</div>
+          <div class="task-comment">Consultar con SAP QA para ver el funcionamiento y definir el flujo para socializarlo.</div>
           <div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div>
         </div>
       </div>
@@ -333,7 +295,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   </div>
 
   <div class="footer">
-    Bloqueo de SKUs Descontinuados · Cemaco · Generado el <span id="footer-date"></span> · 8 tareas
+    Bloqueo de SKUs Descontinuados · Cemaco · Generado el <span id="footer-date"></span> · 7 tareas
   </div>
 </div>
 
@@ -341,9 +303,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 const d=new Date().toLocaleDateString('es-GT',{year:'numeric',month:'long',day:'numeric'});
 document.getElementById('live-date').textContent=d;
 document.getElementById('footer-date').textContent=d;
-new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[2,2,4],backgroundColor:['#1BA85D','#C8970A','#C8C6BF'],borderWidth:2,borderColor:'#fff',hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
+new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[1,1,5],backgroundColor:['#1BA85D','#C8970A','#C8C6BF'],borderWidth:2,borderColor:'#fff',hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
 const classMap={all:'active-all',done:'active-done',proc:'active-proc',pend:'active-pend'};
-const countMap={all:'8 tareas',done:'2 tareas — completadas',proc:'2 tareas — en proceso',pend:'4 tareas — pendientes'};
+const countMap={all:'7 tareas',done:'1 tarea — completada',proc:'1 tarea — en proceso',pend:'5 tareas — pendientes'};
 function filter(type,el){
   document.querySelectorAll('.mc').forEach(mc=>mc.classList.remove('active-all','active-done','active-proc','active-pend'));
   el.classList.add(classMap[type]);
