@@ -335,15 +335,22 @@ function applyFilters(){
 }
 function filter(type,el){
   activeStatus=type;
-  document.querySelectorAll('.fb').forEach(b=>b.className='fb');
+  // Solo resetea botones de estado (fb-all, fb-done, fb-proc, fb-pend)
+  ['fb-all','fb-done','fb-proc','fb-pend'].forEach(id=>{
+    const b=document.getElementById(id);
+    if(b) b.className='fb';
+  });
   el.classList.add(classMap[type]);
   applyFilters();
 }
 function filterFase(fase,el){
   activeFase=fase==='all'?'all':fase;
-  document.querySelectorAll('.fb').forEach(b=>b.className='fb');
+  // Solo resetea botones de fase (fb-f1, fb-f2)
+  ['fb-f1','fb-f2'].forEach(id=>{
+    const b=document.getElementById(id);
+    if(b) b.className='fb';
+  });
   el.classList.add(classMap[fase]);
-  activeStatus='all';
   applyFilters();
 }
 </script>
