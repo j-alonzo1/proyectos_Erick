@@ -118,31 +118,31 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 <div class="main">
   <div class="metrics">
-    <div class="mc mc-all active-all" onclick="filter('all',this)">
+    <div class="mc mc-all active-all" id="mc-all" onclick="filter('all',this)">
       <div class="mc-label">Total tareas</div>
       <div class="mc-val blue">32</div>
       <div class="mc-sub">2 fases</div>
       <div class="mc-bar"><div class="mc-bar-fill" style="width:100%;background:var(--blue);"></div></div>
     </div>
-    <div class="mc mc-done" onclick="filter('done',this)">
+    <div class="mc mc-done" id="mc-done" onclick="filter('done',this)">
       <div class="mc-label">Completadas</div>
       <div class="mc-val green">19</div>
       <div class="mc-sub">59% del total</div>
       <div class="mc-bar"><div class="mc-bar-fill" style="width:59%;background:var(--green);"></div></div>
     </div>
-    <div class="mc mc-proc" onclick="filter('proc',this)">
+    <div class="mc mc-proc" id="mc-proc" onclick="filter('proc',this)">
       <div class="mc-label">En proceso</div>
       <div class="mc-val amber">6</div>
       <div class="mc-sub">19% del total</div>
       <div class="mc-bar"><div class="mc-bar-fill" style="width:19%;background:var(--amber);"></div></div>
     </div>
-    <div class="mc mc-pend" onclick="filter('pend',this)">
+    <div class="mc mc-pend" id="mc-pend" onclick="filter('pend',this)">
       <div class="mc-label">Pendientes</div>
       <div class="mc-val">7</div>
       <div class="mc-sub">22% del total</div>
       <div class="mc-bar"><div class="mc-bar-fill" style="width:22%;background:var(--border2);"></div></div>
     </div>
-    <div class="mc mc-f1" onclick="filterFase('f1',this)">
+    <div class="mc mc-f1" id="mc-f1" onclick="filterFase('f1',this)">
       <div class="mc-label">Fase 1</div>
       <div class="mc-val green">✓</div>
       <div class="mc-sub">15/15 completadas</div>
@@ -315,8 +315,29 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 const d=new Date().toLocaleDateString('es-GT',{year:'numeric',month:'long',day:'numeric'});
 document.getElementById('live-date').textContent=d;
 document.getElementById('footer-date').textContent=d;
-const classMap={all:'active-all',done:'active-done',proc:'active-proc',pend:'active-pend',f1:'active-f1',f2:'active-f2'};
-let activeStatus='all',activeFase='all';
+
+new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[19,6,7],backgroundColor:['#1BA85D','#C8970A','#B4B2A9'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
+
+const statusClassMap={all:'active-all',done:'active-done',proc:'active-proc',pend:'active-pend'};
+const faseClassMap={f1:'active-f1',f2:'active-f2'};
+const statusIds=['mc-all','mc-done','mc-proc','mc-pend','fb-all','fb-done','fb-proc','fb-pend'];
+const faseIds=['mc-f1','fb-f1','fb-f2'];
+let activeStatus='all', activeFase='all';
+
+function clearStatus(){
+  statusIds.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.classList.remove('active-all','active-done','active-proc','active-pend');
+  });
+}
+function clearFase(){
+  faseIds.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.classList.remove('active-f1','active-f2');
+  });
+}
 function applyFilters(){
   let vis=0;
   document.querySelectorAll('.task-row').forEach(row=>{
@@ -324,33 +345,36 @@ function applyFilters(){
     const fOk=activeFase==='all'||row.dataset.f===activeFase;
     const show=sOk&&fOk;
     row.classList.toggle('hidden',!show);
-    if(show)vis++;
+    if(show) vis++;
   });
   const ph1=document.getElementById('phase1-header');
   const ph2=document.getElementById('phase2-header');
-  if(ph1)ph1.style.display=(activeFase==='f2')?'none':'flex';
-  if(ph2)ph2.style.display=(activeFase==='f1')?'none':'flex';
+  if(ph1) ph1.style.display=(activeFase==='f2')?'none':'flex';
+  if(ph2) ph2.style.display=(activeFase==='f1')?'none':'flex';
   document.getElementById('task-count').textContent=vis+' tarea'+(vis!==1?'s':'');
   document.getElementById('empty-msg').style.display=vis===0?'block':'none';
 }
 function filter(type,el){
   activeStatus=type;
-  // Solo resetea botones de estado (fb-all, fb-done, fb-proc, fb-pend)
-  ['fb-all','fb-done','fb-proc','fb-pend'].forEach(id=>{
-    const b=document.getElementById(id);
-    if(b) b.className='fb';
-  });
-  el.classList.add(classMap[type]);
+  clearStatus();
+  // Activar mc y fb del mismo tipo
+  const mc=document.getElementById('mc-'+type);
+  const fb=document.getElementById('fb-'+type);
+  if(mc) mc.classList.add(statusClassMap[type]);
+  if(fb) fb.classList.add(statusClassMap[type]);
   applyFilters();
 }
 function filterFase(fase,el){
-  activeFase=fase==='all'?'all':fase;
-  // Solo resetea botones de fase (fb-f1, fb-f2)
-  ['fb-f1','fb-f2'].forEach(id=>{
-    const b=document.getElementById(id);
-    if(b) b.className='fb';
-  });
-  el.classList.add(classMap[fase]);
+  // Toggle
+  if(activeFase===fase){ activeFase='all'; clearFase(); }
+  else {
+    activeFase=fase;
+    clearFase();
+    const mc=document.getElementById('mc-'+fase);
+    const fb=document.getElementById('fb-'+fase);
+    if(mc) mc.classList.add(faseClassMap[fase]);
+    if(fb) fb.classList.add(faseClassMap[fase]);
+  }
   applyFilters();
 }
 </script>
