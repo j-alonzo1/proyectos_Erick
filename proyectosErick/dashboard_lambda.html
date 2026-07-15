@@ -106,7 +106,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div class="topbar-logo">C</div>
     <div>
       <div class="topbar-name">Validar Pronósticos LAMBDA</div>
-      <div class="topbar-sub">Cemaco · 2 fases · Feb – Jul 2026</div>
+      <div class="topbar-sub">Cemaco · 2 fases · Feb – Ago 2026</div>
     </div>
   </div>
   <div class="topbar-right">
@@ -120,15 +120,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="metrics">
     <div class="mc mc-all active-all" id="mc-all" onclick="filter('all',this)">
       <div class="mc-label">Total tareas</div>
-      <div class="mc-val blue">32</div>
+      <div class="mc-val blue">33</div>
       <div class="mc-sub">2 fases</div>
       <div class="mc-bar"><div class="mc-bar-fill" style="width:100%;background:var(--blue);"></div></div>
     </div>
     <div class="mc mc-done" id="mc-done" onclick="filter('done',this)">
       <div class="mc-label">Completadas</div>
-      <div class="mc-val green">23</div>
-      <div class="mc-sub">72% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:72%;background:var(--green);"></div></div>
+      <div class="mc-val green">27</div>
+      <div class="mc-sub">82% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:82%;background:var(--green);"></div></div>
     </div>
     <div class="mc mc-proc" id="mc-proc" onclick="filter('proc',this)">
       <div class="mc-label">En proceso</div>
@@ -138,9 +138,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
     <div class="mc mc-pend" id="mc-pend" onclick="filter('pend',this)">
       <div class="mc-label">Pendientes</div>
-      <div class="mc-val">6</div>
-      <div class="mc-sub">19% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:19%;background:var(--border2);"></div></div>
+      <div class="mc-val">3</div>
+      <div class="mc-sub">9% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:9%;background:var(--border2);"></div></div>
     </div>
     <div class="mc mc-f1" id="mc-f1" onclick="filterFase('f1',this)">
       <div class="mc-label">Fase 1</div>
@@ -164,22 +164,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <div class="phase-bar-wrap">
         <div class="phase-label">
           <span class="phase-name">Fase 2 — Jardinería, mascotas y baños</span>
-          <span class="phase-pct" style="color:var(--amber);">47%</span>
+          <span class="phase-pct" style="color:var(--amber);">67%</span>
         </div>
-        <div class="phase-bar-bg"><div class="phase-bar-fill" style="width:47%;background:var(--amber);"></div></div>
-        <div class="phase-sub">8 completadas · 3 en proceso · 6 pendientes de 17 tareas</div>
+        <div class="phase-bar-bg"><div class="phase-bar-fill" style="width:67%;background:var(--amber);"></div></div>
+        <div class="phase-sub">12 completadas · 3 en proceso · 3 pendientes de 18 tareas</div>
       </div>
       <div style="margin-top:16px;">
         <div class="phase-label">
           <span class="phase-name" style="font-size:13px;">Avance global del proyecto</span>
-          <span class="phase-pct" style="color:var(--green);font-size:14px;">72%</span>
+          <span class="phase-pct" style="color:var(--green);font-size:14px;">82%</span>
         </div>
-        <div class="phase-bar-bg" style="height:8px;"><div class="phase-bar-fill" style="width:72%;background:var(--green);"></div></div>
+        <div class="phase-bar-bg" style="height:8px;"><div class="phase-bar-fill" style="width:82%;background:var(--green);"></div></div>
       </div>
       <div class="legend-row" style="margin-top:14px;">
-        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (23)</div>
+        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (27)</div>
         <div class="leg"><div class="leg-dot" style="background:#C8970A;"></div>En proceso (3)</div>
-        <div class="leg"><div class="leg-dot" style="background:#C8C6BF;"></div>Pendiente (6)</div>
+        <div class="leg"><div class="leg-dot" style="background:#C8C6BF;"></div>Pendiente (3)</div>
       </div>
     </div>
     <div class="card">
@@ -187,8 +187,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <div class="alert-item">
         <div class="alert-ico a-warn">⚠️</div>
         <div>
-          <div class="alert-title">Fase 2 al 24% — en ejecución</div>
-          <div class="alert-body">Análisis de Jardinería, mascotas y baños en proceso. Pendiente que Juan Pablo comparta información para continuar.</div>
+          <div class="alert-title">Fase 2 al 67% — en ejecución</div>
+          <div class="alert-body">Cambios de mínimos y máximos casi completos (Zona 4 y exteriores cerrados, ferretería en proceso). Pendiente aplicar cambios a los 1500 SKUs.</div>
         </div>
       </div>
       <div class="alert-item">
@@ -199,10 +199,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         </div>
       </div>
       <div class="alert-item">
-        <div class="alert-ico a-risk">🔴</div>
+        <div class="alert-ico a-info">ℹ️</div>
         <div>
-          <div class="alert-title">7 categorías pendientes de calcular</div>
-          <div class="alert-body">Mesa/cocina/autos, Ferretería/Pinturas/Outdoor e Iluminación/Decoración aún sin cálculos de sugeridos.</div>
+          <div class="alert-title">1500 SKUs trasladados a Erick</div>
+          <div class="alert-body">Listado de códigos entregado y forecast extraído. Pendiente aplicar los cambios y definir el método de validación.</div>
         </div>
       </div>
       <div class="alert-item">
@@ -218,14 +218,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <!-- FILTER ROW -->
   <div class="filter-row">
     <span style="font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;">Estado:</span>
-    <button class="fb active-all" id="fb-all" onclick="filter('all',this)">Todos (32)</button>
-    <button class="fb" id="fb-done" onclick="filter('done',this)">Completado (19)</button>
-    <button class="fb" id="fb-proc" onclick="filter('proc',this)">En proceso (6)</button>
-    <button class="fb" id="fb-pend" onclick="filter('pend',this)">Pendiente (7)</button>
+    <button class="fb active-all" id="fb-all" onclick="filter('all',this)">Todos (33)</button>
+    <button class="fb" id="fb-done" onclick="filter('done',this)">Completado (27)</button>
+    <button class="fb" id="fb-proc" onclick="filter('proc',this)">En proceso (3)</button>
+    <button class="fb" id="fb-pend" onclick="filter('pend',this)">Pendiente (3)</button>
     <span style="font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-left:8px;">Fase:</span>
     <button class="fb" id="fb-f1" onclick="filterFase('f1',this)">Fase 1</button>
     <button class="fb" id="fb-f2" onclick="filterFase('f2',this)">Fase 2</button>
-    <span style="font-size:12px;color:var(--text3);margin-left:auto;" id="task-count">32 tareas</span>
+    <span style="font-size:12px;color:var(--text3);margin-left:auto;" id="task-count">33 tareas</span>
   </div>
 
   <div class="task-card">
@@ -268,16 +268,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div id="phase2-header" class="phase-header">
       <span class="phase-tag ph-f2">FASE 2 — Jardinería, mascotas y baños</span>
       <div class="ph-line"></div>
-      <span style="font-size:11px;color:var(--amber);font-weight:600;">47% 🟡</span>
+      <span style="font-size:11px;color:var(--amber);font-weight:600;">67% 🟡</span>
     </div>
 
-    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">16</span><div class="task-body"><div class="task-name">Simplificar la fórmula min max</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>18 may – 25 may 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">David</span><span class="badge b-done">Completado</span></div><div class="task-comment">Revisión del Excel para evaluar si la fórmula puede ser minimizada.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">16</span><div class="task-body"><div class="task-name">Simplificar la fórmula min max</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 abr – 4 may 2026</span><span class="weeks-chip">2 sem</span></div><div class="task-meta-row"><span class="badge b-blue">David</span><span class="badge b-done">Completado</span></div><div class="task-comment">Se revisará el Excel para evaluar si la fórmula puede ser minimizada.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">17</span><div class="task-body"><div class="task-name">Cálculos Electrónica, Herramientas, Electrodomésticos y Cocina</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>1 jun – 15 jun 2026</span><span class="weeks-chip">2 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Mariela / Carlos</span><span class="badge b-done">Completado</span></div><div class="task-comment">Archivos con máximos y mínimos ajustados.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">17</span><div class="task-body"><div class="task-name">Cálculos Electrónica, Herramientas, Electrodomésticos y Cocina</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>18 may – 8 jun 2026</span><span class="weeks-chip">3 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Mariela / Carlos</span><span class="badge b-done">Completado</span></div><div class="task-comment">Archivos con máximos y mínimos ajustados.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
     <div class="task-row" data-s="done" data-f="f2"><span class="task-num">18</span><div class="task-body"><div class="task-name">Cálculos Limpieza, Eléctricos, Organización y Cortinaje</div><div class="task-meta-row"><span class="badge b-purple">Mariela / Carlos</span><span class="badge b-done">Completado</span></div><div class="task-comment">Ajustados al Inner para que funcione correctamente.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">19</span><div class="task-body"><div class="task-name">Cálculos Plome, Baño, Cocina, Alfombras, salud y belleza</div><div class="task-meta-row"><span class="badge b-purple">Mariela / Carlos</span><span class="badge b-done">Completado</span></div><div class="task-comment">Ajustes realizados para que el resurtido funcione correctamente.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">19</span><div class="task-body"><div class="task-name">Cálculos Plome, Baño, Cocina, Alfombras, salud y belleza</div><div class="task-meta-row"><span class="badge b-purple">Mariela / Carlos</span><span class="badge b-done">Completado</span></div><div class="task-comment">Ajustes realizados para que el resurtido funcione correctamente; el análisis se compartirá a cada planner.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
     <div class="task-row" data-s="done" data-f="f2"><span class="task-num">20</span><div class="task-body"><div class="task-name">Cargar archivos al sistema</div><div class="task-meta-row"><span class="badge b-blue">Carlos</span><span class="badge b-done">Completado</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
@@ -287,28 +287,30 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
     <div class="task-row" data-s="done" data-f="f2"><span class="task-num">23</span><div class="task-body"><div class="task-name">Cálculos Iluminación y Decoración</div><div class="task-meta-row"><span class="badge b-purple">Mariela / Carlos</span><span class="badge b-done">Completado</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">24</span><div class="task-body"><div class="task-name">Cálculos de sugeridos</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>11 may – 27 jul 2026</span><span class="weeks-chip">11 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Juan Pablo / Carlos</span><span class="badge b-proc">En proceso</span></div><div class="task-comment">Cálculos en Excel finalizados, a espera de que Juan Pablo los ejecute. Pendiente definir confiabilidad del modelo.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:60%;"></div></div></div></div>
+    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">24</span><div class="task-body"><div class="task-name">Cálculos de sugeridos</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 abr – 20 jul 2026</span><span class="weeks-chip">13 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Juan Pablo / Carlos</span><span class="badge b-proc">En proceso</span></div><div class="task-comment">Cálculos en Excel finalizados, a espera de que Juan Pablo los ejecute. Pendiente definir confiabilidad del modelo; ya se tienen los flags y el error, resto formulado.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:65%;"></div></div></div></div>
 
-    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">25</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>22 jun – 27 jul 2026</span><span class="weeks-chip">5 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-proc">En proceso</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:30%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">25</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos — Zona 4 (Top50 herramientas)</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>22 jun – 29 jun 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-done">Completado</span></div><div class="task-comment">Cargado el mundo de herramientas en tienda Zona 4 (eléctricos, herramientas, iluminación y electrónica). Solo el Top50 del departamento.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">26</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos</div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-pend">Pendiente</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">26</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos — Exteriores y mantenimiento</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>29 jun – 6 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-done">Completado</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">27</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos</div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-pend">Pendiente</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">27</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos — Mundo de ferretería</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>6 jul – 13 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-proc">En proceso</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:50%;"></div></div></div></div>
 
-    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">28</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos</div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-pend">Pendiente</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">28</span><div class="task-body"><div class="task-name">Entregar el nuevo listado de códigos a evaluar</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>13 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Eleana / Erick</span><span class="badge b-done">Completado</span></div><div class="task-comment">1500 SKUs trasladados a Erick.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">29</span><div class="task-body"><div class="task-name">Monitoreo de cálculos realizados</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>11 may – 27 jul 2026</span><span class="weeks-chip">11 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Mariela / Carlos</span><span class="badge b-proc">En proceso</span></div><div class="task-comment">Evaluado desde carga inicial. Reducción de pedidos especiales.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:50%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">29</span><div class="task-body"><div class="task-name">Extracción de Forecast — pronósticos de los 1500 SKUs (corrida de julio)</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>13 jul – 20 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-done">Completado</span></div><div class="task-comment">Erick traslada la información a Eleana y Carlos.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">30</span><div class="task-body"><div class="task-name">Método de validación</div><div class="task-meta-row"><span class="badge b-blue">Carlos</span><span class="badge b-pend">Pendiente</span></div><div class="task-comment">Al tener el tablero podemos definir fechas para validar. Medición de resultados: eliminar stockout, cuántos pedidos manuales se están colocando.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">30</span><div class="task-body"><div class="task-name">Realizar cambios de los 1500 SKUs</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 jul – 10 ago 2026</span><span class="weeks-chip">3 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-pend">Pendiente</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
 
-    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">31</span><div class="task-body"><div class="task-name">Medición de los primeros mundos</div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-pend">Pendiente</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">31</span><div class="task-body"><div class="task-name">Método de validación</div><div class="task-meta-row"><span class="badge b-blue">Carlos</span><span class="badge b-pend">Pendiente</span></div><div class="task-comment">Al tener el tablero podemos definir fechas para validar. Medición de resultados: eliminar stockout, cuántos pedidos manuales se están colocando.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
 
-    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">32</span><div class="task-body"><div class="task-name">Definir fecha de presentación con Jessica</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>25 may – 8 jun 2026</span><span class="weeks-chip">2 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick / Mariela / Carlos</span><span class="badge b-pend">Pendiente</span></div><div class="task-comment">Definir cómo se va a presentar a Jessi.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">32</span><div class="task-body"><div class="task-name">Monitoreo de cálculos realizados</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>11 may – 27 jul 2026</span><span class="weeks-chip">11 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Mariela / Carlos</span><span class="badge b-proc">En proceso</span></div><div class="task-comment">Evaluado desde carga inicial. Reducción de pedidos especiales.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:50%;"></div></div></div></div>
+
+    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">33</span><div class="task-body"><div class="task-name">Definir fecha de presentación con Jessica</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>25 may – 8 jun 2026</span><span class="weeks-chip">2 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick / Mariela / Carlos</span><span class="badge b-pend">Pendiente</span></div><div class="task-comment">Definir cómo se va a presentar a Jessi.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
 
     <div class="empty-msg" id="empty-msg">No hay tareas para este estado.</div>
   </div>
 
-  <div class="footer">Validar Pronósticos LAMBDA · Cemaco · Generado el <span id="footer-date"></span> · 32 tareas · 2 fases</div>
+  <div class="footer">Validar Pronósticos LAMBDA · Cemaco · Generado el <span id="footer-date"></span> · 33 tareas · 2 fases</div>
 </div>
 
 <script>
@@ -316,7 +318,7 @@ const d=new Date().toLocaleDateString('es-GT',{year:'numeric',month:'long',day:'
 document.getElementById('live-date').textContent=d;
 document.getElementById('footer-date').textContent=d;
 
-new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[23,3,6],backgroundColor:['#1BA85D','#C8970A','#B4B2A9'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
+new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[27,3,3],backgroundColor:['#1BA85D','#C8970A','#B4B2A9'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
 
 const statusClassMap={all:'active-all',done:'active-done',proc:'active-proc',pend:'active-pend'};
 const faseClassMap={f1:'active-f1',f2:'active-f2'};
