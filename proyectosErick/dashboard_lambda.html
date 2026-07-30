@@ -126,9 +126,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
     <div class="mc mc-done" id="mc-done" onclick="filter('done',this)">
       <div class="mc-label">Completadas</div>
-      <div class="mc-val green">27</div>
-      <div class="mc-sub">82% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:82%;background:var(--green);"></div></div>
+      <div class="mc-val green">29</div>
+      <div class="mc-sub">88% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:88%;background:var(--green);"></div></div>
     </div>
     <div class="mc mc-proc" id="mc-proc" onclick="filter('proc',this)">
       <div class="mc-label">En proceso</div>
@@ -138,9 +138,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
     <div class="mc mc-pend" id="mc-pend" onclick="filter('pend',this)">
       <div class="mc-label">Pendientes</div>
-      <div class="mc-val">3</div>
-      <div class="mc-sub">9% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:9%;background:var(--border2);"></div></div>
+      <div class="mc-val">1</div>
+      <div class="mc-sub">3% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:3%;background:var(--border2);"></div></div>
     </div>
     <div class="mc mc-f1" id="mc-f1" onclick="filterFase('f1',this)">
       <div class="mc-label">Fase 1</div>
@@ -164,33 +164,26 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <div class="phase-bar-wrap">
         <div class="phase-label">
           <span class="phase-name">Fase 2 — Jardinería, mascotas y baños</span>
-          <span class="phase-pct" style="color:var(--amber);">67%</span>
+          <span class="phase-pct" style="color:var(--amber);">78%</span>
         </div>
-        <div class="phase-bar-bg"><div class="phase-bar-fill" style="width:67%;background:var(--amber);"></div></div>
-        <div class="phase-sub">12 completadas · 3 en proceso · 3 pendientes de 18 tareas</div>
+        <div class="phase-bar-bg"><div class="phase-bar-fill" style="width:78%;background:var(--amber);"></div></div>
+        <div class="phase-sub">14 completadas · 3 en proceso · 1 pendiente de 18 tareas</div>
       </div>
       <div style="margin-top:16px;">
         <div class="phase-label">
           <span class="phase-name" style="font-size:13px;">Avance global del proyecto</span>
-          <span class="phase-pct" style="color:var(--green);font-size:14px;">82%</span>
+          <span class="phase-pct" style="color:var(--green);font-size:14px;">88%</span>
         </div>
-        <div class="phase-bar-bg" style="height:8px;"><div class="phase-bar-fill" style="width:82%;background:var(--green);"></div></div>
+        <div class="phase-bar-bg" style="height:8px;"><div class="phase-bar-fill" style="width:88%;background:var(--green);"></div></div>
       </div>
       <div class="legend-row" style="margin-top:14px;">
-        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (27)</div>
+        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (29)</div>
         <div class="leg"><div class="leg-dot" style="background:#C8970A;"></div>En proceso (3)</div>
-        <div class="leg"><div class="leg-dot" style="background:#C8C6BF;"></div>Pendiente (3)</div>
+        <div class="leg"><div class="leg-dot" style="background:#C8C6BF;"></div>Pendiente (1)</div>
       </div>
     </div>
     <div class="card">
       <div class="card-title">Alertas activas</div>
-      <div class="alert-item">
-        <div class="alert-ico a-warn">⚠️</div>
-        <div>
-          <div class="alert-title">Fase 2 al 67% — en ejecución</div>
-          <div class="alert-body">Cambios de mínimos y máximos casi completos (Zona 4 y exteriores cerrados, ferretería en proceso). Pendiente aplicar cambios a los 1500 SKUs.</div>
-        </div>
-      </div>
       <div class="alert-item">
         <div class="alert-ico a-warn">⚠️</div>
         <div>
@@ -199,10 +192,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         </div>
       </div>
       <div class="alert-item">
-        <div class="alert-ico a-info">ℹ️</div>
+        <div class="alert-ico a-ok">✅</div>
         <div>
-          <div class="alert-title">1500 SKUs trasladados a Erick</div>
-          <div class="alert-body">Listado de códigos entregado y forecast extraído. Pendiente aplicar los cambios y definir el método de validación.</div>
+          <div class="alert-title">Cambios de mínimos y máximos completados</div>
+          <div class="alert-body">Zona 4, exteriores y ferretería cerrados. Cambios de los 1500 SKUs aplicados por Eleana.</div>
+        </div>
+      </div>
+      <div class="alert-item">
+        <div class="alert-ico a-warn">⚠️</div>
+        <div>
+          <div class="alert-title">Documento de medición de resultados en proceso</div>
+          <div class="alert-body">Erick elaborando el documento para medir resultados: eliminar stockout y reducir pedidos manuales.</div>
         </div>
       </div>
       <div class="alert-item">
@@ -219,9 +219,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="filter-row">
     <span style="font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;">Estado:</span>
     <button class="fb active-all" id="fb-all" onclick="filter('all',this)">Todos (33)</button>
-    <button class="fb" id="fb-done" onclick="filter('done',this)">Completado (27)</button>
+    <button class="fb" id="fb-done" onclick="filter('done',this)">Completado (29)</button>
     <button class="fb" id="fb-proc" onclick="filter('proc',this)">En proceso (3)</button>
-    <button class="fb" id="fb-pend" onclick="filter('pend',this)">Pendiente (3)</button>
+    <button class="fb" id="fb-pend" onclick="filter('pend',this)">Pendiente (1)</button>
     <span style="font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-left:8px;">Fase:</span>
     <button class="fb" id="fb-f1" onclick="filterFase('f1',this)">Fase 1</button>
     <button class="fb" id="fb-f2" onclick="filterFase('f2',this)">Fase 2</button>
@@ -268,7 +268,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div id="phase2-header" class="phase-header">
       <span class="phase-tag ph-f2">FASE 2 — Jardinería, mascotas y baños</span>
       <div class="ph-line"></div>
-      <span style="font-size:11px;color:var(--amber);font-weight:600;">67% 🟡</span>
+      <span style="font-size:11px;color:var(--amber);font-weight:600;">78% 🟡</span>
     </div>
 
     <div class="task-row" data-s="done" data-f="f2"><span class="task-num">16</span><div class="task-body"><div class="task-name">Simplificar la fórmula min max</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 abr – 4 may 2026</span><span class="weeks-chip">2 sem</span></div><div class="task-meta-row"><span class="badge b-blue">David</span><span class="badge b-done">Completado</span></div><div class="task-comment">Se revisará el Excel para evaluar si la fórmula puede ser minimizada.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
@@ -287,21 +287,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
     <div class="task-row" data-s="done" data-f="f2"><span class="task-num">23</span><div class="task-body"><div class="task-name">Cálculos Iluminación y Decoración</div><div class="task-meta-row"><span class="badge b-purple">Mariela / Carlos</span><span class="badge b-done">Completado</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">24</span><div class="task-body"><div class="task-name">Cálculos de sugeridos</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 abr – 20 jul 2026</span><span class="weeks-chip">13 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Juan Pablo / Carlos</span><span class="badge b-proc">En proceso</span></div><div class="task-comment">Cálculos en Excel finalizados, a espera de que Juan Pablo los ejecute. Pendiente definir confiabilidad del modelo; ya se tienen los flags y el error, resto formulado.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:65%;"></div></div></div></div>
+    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">24</span><div class="task-body"><div class="task-name">Cálculos de sugeridos</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 abr – 27 jul 2026</span><span class="weeks-chip">14 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Juan Pablo / Carlos</span><span class="badge b-proc">En proceso</span></div><div class="task-comment">Cálculos en Excel finalizados, a espera de que Juan Pablo los ejecute. Pendiente definir confiabilidad del modelo; ya se tienen los flags y el error, resto formulado.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:65%;"></div></div></div></div>
 
     <div class="task-row" data-s="done" data-f="f2"><span class="task-num">25</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos - Eléctricos, herramientas, iluminación y electrónica</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>22 jun – 29 jun 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-done">Completado</span></div><div class="task-comment">Cargado el mundo de herramientas en tienda Zona 4 (eléctricos, herramientas, iluminación y electrónica). Solo el Top50 del departamento.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
     <div class="task-row" data-s="done" data-f="f2"><span class="task-num">26</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos - Exteriores y mantenimiento</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>29 jun – 6 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-done">Completado</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">27</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos - Mundo ferretería</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>6 jul – 13 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-proc">En proceso</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:50%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">27</span><div class="task-body"><div class="task-name">Cambios en mínimos y máximos - Mundo ferretería</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>6 jul – 13 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-done">Completado</span></div><div class="task-comment">Mundo de ferretería cerrado.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
     <div class="task-row" data-s="done" data-f="f2"><span class="task-num">28</span><div class="task-body"><div class="task-name">Entregar el nuevo listado de códigos a evaluar</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>13 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Eleana / Erick</span><span class="badge b-done">Completado</span></div><div class="task-comment">1500 SKUs trasladados a Erick.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
     <div class="task-row" data-s="done" data-f="f2"><span class="task-num">29</span><div class="task-body"><div class="task-name">Extracción de Forecast — pronósticos de los 1500 SKUs (corrida de julio)</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>13 jul – 20 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-done">Completado</span></div><div class="task-comment">Erick traslada la información a Eleana y Carlos.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">30</span><div class="task-body"><div class="task-name">Realizar cambios de los 1500 SKUs</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 jul – 10 ago 2026</span><span class="weeks-chip">3 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-pend">Pendiente</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">30</span><div class="task-body"><div class="task-name">Realizar cambios de los 1500 SKUs</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 jul – 27 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Eleana</span><span class="badge b-done">Completado</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">31</span><div class="task-body"><div class="task-name">Método de validación</div><div class="task-meta-row"><span class="badge b-blue">Carlos</span><span class="badge b-pend">Pendiente</span></div><div class="task-comment">Al tener el tablero podemos definir fechas para validar. Medición de resultados: eliminar stockout, cuántos pedidos manuales se están colocando.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">31</span><div class="task-body"><div class="task-name">Elaborar documento para medición de resultados</div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-proc">En proceso</span></div><div class="task-comment">Medición de resultados: eliminar stockout y reducir cuántos pedidos manuales se están colocando.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:50%;"></div></div></div></div>
 
     <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">32</span><div class="task-body"><div class="task-name">Monitoreo de cálculos realizados</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>11 may – 27 jul 2026</span><span class="weeks-chip">11 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Mariela / Carlos</span><span class="badge b-proc">En proceso</span></div><div class="task-comment">Evaluado desde carga inicial. Reducción de pedidos especiales.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:50%;"></div></div></div></div>
 
@@ -317,8 +317,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 const d=new Date().toLocaleDateString('es-GT',{year:'numeric',month:'long',day:'numeric'});
 document.getElementById('live-date').textContent=d;
 document.getElementById('footer-date').textContent=d;
-
-new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[27,3,3],backgroundColor:['#1BA85D','#C8970A','#B4B2A9'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
 
 const statusClassMap={all:'active-all',done:'active-done',proc:'active-proc',pend:'active-pend'};
 const faseClassMap={f1:'active-f1',f2:'active-f2'};
@@ -359,7 +357,6 @@ function applyFilters(){
 function filter(type,el){
   activeStatus=type;
   clearStatus();
-  // Activar mc y fb del mismo tipo
   const mc=document.getElementById('mc-'+type);
   const fb=document.getElementById('fb-'+type);
   if(mc) mc.classList.add(statusClassMap[type]);
@@ -367,7 +364,6 @@ function filter(type,el){
   applyFilters();
 }
 function filterFase(fase,el){
-  // Toggle
   if(activeFase===fase){ activeFase='all'; clearFase(); }
   else {
     activeFase=fase;
