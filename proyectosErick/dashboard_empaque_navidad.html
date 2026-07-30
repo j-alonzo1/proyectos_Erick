@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planificación Empaque Navidad — Cemaco</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#F4F3EF;--surface:#FFFFFF;--border:#E2E0DA;--border2:#C8C6BF;--text:#1A1916;--text2:#6B6962;--text3:#9E9C96;--green:#1BA85D;--green-bg:#D9F4E8;--green-dk:#0E6637;--blue:#101E8E;--blue-bg:#F0EFFA;--amber:#C8970A;--amber-bg:#FEF8E0;--amber-dk:#7A5C00;--gray:#5F5E5A;--gray-bg:#EEEDEA;--red-bg:#FDEAEA;--orange:#FF6400;--radius:10px;--radius-sm:6px;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;}
+.topbar{background:var(--blue);color:#fff;padding:0 36px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.topbar-logo{width:34px;height:34px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;}
+.topbar-name{font-size:15px;font-weight:500;}.topbar-sub{font-size:11px;opacity:.55;margin-top:1px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.topbar-pill{background:rgba(255,255,255,.15);padding:4px 12px;border-radius:99px;font-size:11px;font-weight:500;}
+.topbar-date{font-size:12px;opacity:.45;font-family:'DM Mono',monospace;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.7);text-decoration:none;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:all .15s;}
+.back-btn:hover{background:rgba(255,255,255,.1);color:#fff;}
+.main{max-width:1100px;margin:0 auto;padding:28px 24px 60px;}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px;}
+.mc{background:var(--surface);border:2px solid transparent;border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:border-color .15s,background .15s,transform .12s;position:relative;overflow:hidden;}
+.mc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.mc:hover{transform:translateY(-2px);}
+.mc.active-all{border-color:var(--blue);background:var(--blue-bg);}
+.mc.active-done{border-color:var(--green);background:var(--green-bg);}
+.mc.active-proc{border-color:var(--amber);background:var(--amber-bg);}
+.mc.active-pend{border-color:var(--border2);background:var(--gray-bg);}
+.mc-all::after{background:var(--blue);}.mc-done::after{background:var(--green);}.mc-proc::after{background:var(--amber);}.mc-pend::after{background:var(--border2);}
+.mc-label{font-size:11px;font-weight:500;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+.mc-val{font-size:26px;font-weight:600;letter-spacing:-1px;}
+.mc-val.blue{color:var(--blue);}.mc-val.green{color:var(--green);}.mc-val.amber{color:var(--amber);}
+.mc-sub{font-size:11px;color:var(--text3);margin-top:4px;}
+.mc-bar{height:4px;background:var(--border);border-radius:99px;margin-top:8px;overflow:hidden;}
+.mc-bar-fill{height:100%;border-radius:99px;}
+.mid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+.card-title{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;}
+.leg{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text2);}
+.leg-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+.phase-bar-wrap{margin-bottom:14px;}
+.phase-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;}
+.phase-name{font-weight:500;color:var(--text);}
+.phase-pct{font-family:'DM Mono',monospace;font-weight:500;}
+.phase-bar-bg{height:10px;background:var(--gray-bg);border-radius:99px;overflow:hidden;}
+.phase-bar-fill{height:100%;border-radius:99px;}
+.phase-sub{font-size:10px;color:var(--text3);margin-top:4px;}
+.donut-wrap{height:150px;position:relative;margin:16px 0 4px;}
+.alert-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:.5px solid var(--border);}
+.alert-item:last-child{border-bottom:none;}
+.alert-ico{width:30px;height:30px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;}
+.a-warn{background:var(--amber-bg);}.a-ok{background:var(--green-bg);}.a-risk{background:var(--red-bg);}.a-info{background:var(--blue-bg);}
+.alert-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px;}
+.alert-body{font-size:12px;color:var(--text2);line-height:1.4;}
+.task-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px;}
+.task-count{font-size:12px;color:var(--text3);}
+.phase-header{display:flex;align-items:center;gap:10px;margin:0 0 10px;}
+.phase-tag{font-size:11px;font-weight:600;padding:4px 12px;border-radius:99px;background:var(--green-bg);color:var(--green-dk);}
+.ph-line{flex:1;height:1px;background:var(--border);}
+.task-row{display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-bottom:.5px solid var(--border);transition:opacity .15s;}
+.task-row:last-child{border-bottom:none;}
+.task-row.hidden{display:none;}
+.task-num{font-size:11px;color:var(--text3);min-width:24px;margin-top:2px;font-variant-numeric:tabular-nums;}
+.task-body{flex:1;min-width:0;}
+.task-name{font-size:13px;color:var(--text);line-height:1.35;margin-bottom:4px;}
+.task-meta-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px;}
+.badge{display:inline-block;font-size:11px;font-weight:500;padding:2px 9px;border-radius:99px;}
+.b-done{background:var(--green-bg);color:var(--green-dk);}
+.b-proc{background:var(--amber-bg);color:var(--amber-dk);}
+.b-pend{background:var(--gray-bg);color:var(--gray);}
+.b-blue{background:var(--blue-bg);color:var(--blue);}
+.b-green{background:var(--green-bg);color:var(--green-dk);}
+.b-purple{background:#F3EEF9;color:#5A2D91;}
+.task-comment{font-size:11px;color:var(--text2);line-height:1.35;}
+.date-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px;}
+.date-chip{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;color:var(--blue);background:var(--blue-bg);padding:3px 10px;border-radius:99px;}
+.date-chip.no-date{color:var(--text3);background:var(--gray-bg);}
+.weeks-chip{font-size:11px;color:var(--text2);background:var(--gray-bg);padding:3px 9px;border-radius:99px;}
+.mini-bar-bg{height:4px;background:var(--border);border-radius:99px;margin-top:6px;overflow:hidden;}
+.mini-bar-fill{height:100%;border-radius:99px;}
+.bar-done{background:var(--green);}.bar-proc{background:var(--amber);}.bar-pend{background:var(--border2);}
+.empty-msg{text-align:center;padding:2.5rem 0;font-size:13px;color:var(--text3);display:none;}
+.filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.fb{padding:5px 14px;border-radius:99px;border:1.5px solid var(--border2);background:var(--surface);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:var(--text2);cursor:pointer;transition:all .15s;}
+.fb:hover{background:var(--gray-bg);}
+.fb.active-all{background:var(--blue);color:#fff;border-color:var(--blue);}
+.fb.active-done{background:var(--green-bg);color:var(--green-dk);border-color:var(--green);}
+.fb.active-proc{background:var(--amber-bg);color:var(--amber-dk);border-color:var(--amber);}
+.fb.active-pend{background:var(--gray-bg);color:var(--gray);border-color:var(--border2);}
+.footer{text-align:center;font-size:11px;color:var(--text3);margin-top:40px;padding-top:20px;border-top:1px solid var(--border);}
+@media(max-width:900px){.metrics{grid-template-columns:repeat(2,1fr);}.mid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-logo">C</div>
+    <div>
+      <div class="topbar-name">Planificación Empaque Navidad</div>
+      <div class="topbar-sub">Cemaco · Fase 1 · Jun – Ago 2026</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <a href="portal_erick.html" class="back-btn">← Portal</a>
+    <span class="topbar-pill">En proceso</span>
+    <span class="topbar-date" id="live-date"></span>
+  </div>
+</div>
+
+<div class="main">
+  <div class="metrics">
+    <div class="mc mc-all active-all" id="mc-all" onclick="filter('all',this)">
+      <div class="mc-label">Total tareas</div>
+      <div class="mc-val blue">7</div>
+      <div class="mc-sub">Fase 1</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:100%;background:var(--blue);"></div></div>
+    </div>
+    <div class="mc mc-done" id="mc-done" onclick="filter('done',this)">
+      <div class="mc-label">Completadas</div>
+      <div class="mc-val green">2</div>
+      <div class="mc-sub">29% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:29%;background:var(--green);"></div></div>
+    </div>
+    <div class="mc mc-proc" id="mc-proc" onclick="filter('proc',this)">
+      <div class="mc-label">En proceso</div>
+      <div class="mc-val amber">1</div>
+      <div class="mc-sub">14% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:14%;background:var(--amber);"></div></div>
+    </div>
+    <div class="mc mc-pend" id="mc-pend" onclick="filter('pend',this)">
+      <div class="mc-label">Pendientes</div>
+      <div class="mc-val">4</div>
+      <div class="mc-sub">57% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:57%;background:var(--border2);"></div></div>
+    </div>
+  </div>
+
+  <div class="mid">
+    <div class="card">
+      <div class="card-title">Avance general</div>
+      <div class="phase-bar-wrap">
+        <div class="phase-label">
+          <span class="phase-name" style="font-size:13px;">Avance global del proyecto</span>
+          <span class="phase-pct" style="color:var(--amber);font-size:14px;">29%</span>
+        </div>
+        <div class="phase-bar-bg" style="height:10px;"><div class="phase-bar-fill" style="width:29%;background:var(--amber);"></div></div>
+        <div class="phase-sub">2 de 7 tareas completadas</div>
+      </div>
+      <div class="donut-wrap"><canvas id="donut"></canvas></div>
+      <div class="legend-row">
+        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (2)</div>
+        <div class="leg"><div class="leg-dot" style="background:#C8970A;"></div>En proceso (1)</div>
+        <div class="leg"><div class="leg-dot" style="background:#C8C6BF;"></div>Pendiente (4)</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Alertas activas</div>
+      <div class="alert-item">
+        <div class="alert-ico a-ok">✅</div>
+        <div>
+          <div class="alert-title">Documento de proyecciones listo y presentado</div>
+          <div class="alert-body">Reuniones realizadas con cada distrito para presentar el documento de proyecciones.</div>
+        </div>
+      </div>
+      <div class="alert-item">
+        <div class="alert-ico a-warn">⚠️</div>
+        <div>
+          <div class="alert-title">Consolidación de ajustes por tienda en proceso</div>
+          <div class="alert-body">Erick trabajando en cerrar los ajustes por tienda, semana del 20-jul.</div>
+        </div>
+      </div>
+      <div class="alert-item">
+        <div class="alert-ico a-info">ℹ️</div>
+        <div>
+          <div class="alert-title">4 sesiones con proveedores pendientes</div>
+          <div class="alert-body">Pliegos y rollos programada para el 5 de agosto. Moñas, saco reutilizable y bolsa kraft aún sin fecha.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER ROW -->
+  <div class="filter-row">
+    <span style="font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;">Estado:</span>
+    <button class="fb active-all" id="fb-all" onclick="filter('all',this)">Todos (7)</button>
+    <button class="fb" id="fb-done" onclick="filter('done',this)">Completado (2)</button>
+    <button class="fb" id="fb-proc" onclick="filter('proc',this)">En proceso (1)</button>
+    <button class="fb" id="fb-pend" onclick="filter('pend',this)">Pendiente (4)</button>
+    <span style="font-size:12px;color:var(--text3);margin-left:auto;" id="task-count">7 tareas</span>
+  </div>
+
+  <div class="task-card">
+    <div class="phase-header">
+      <span class="phase-tag">FASE 1</span>
+      <div class="ph-line"></div>
+      <span style="font-size:11px;color:var(--amber);font-weight:600;">29% 🟡</span>
+    </div>
+
+    <div class="task-row" data-s="done"><span class="task-num">01</span><div class="task-body"><div class="task-name">Elaboración de documento con proyecciones</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>29 jun – 6 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-done">Completado</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
+
+    <div class="task-row" data-s="done"><span class="task-num">02</span><div class="task-body"><div class="task-name">Sesiones con tiendas agrupadas por distrito</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>13 jul – 20 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-done">Completado</span></div><div class="task-comment">Reuniones para cada distrito para presentar el documento.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
+
+    <div class="task-row" data-s="proc"><span class="task-num">03</span><div class="task-body"><div class="task-name">Consolidación de ajustes por tienda</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 jul – 27 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-proc">En proceso</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:60%;"></div></div></div></div>
+
+    <div class="task-row" data-s="pend"><span class="task-num">04</span><div class="task-body"><div class="task-name">Sesión con proveedor de pliegos y rollos</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>5 ago 2026</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-pend">Pendiente</span></div><div class="task-comment">Sesión programada para el 5 de agosto.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+
+    <div class="task-row" data-s="pend"><span class="task-num">05</span><div class="task-body"><div class="task-name">Sesión con proveedor de moñas</div><div class="date-row"><span class="date-chip no-date">Sin fecha</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-pend">Pendiente</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+
+    <div class="task-row" data-s="pend"><span class="task-num">06</span><div class="task-body"><div class="task-name">Sesión con proveedor de saco reutilizable</div><div class="date-row"><span class="date-chip no-date">Sin fecha</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-pend">Pendiente</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+
+    <div class="task-row" data-s="pend"><span class="task-num">07</span><div class="task-body"><div class="task-name">Sesión con proveedor de bolsa kraft</div><div class="date-row"><span class="date-chip no-date">Sin fecha</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-pend">Pendiente</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+
+    <div class="empty-msg" id="empty-msg">No hay tareas para este estado.</div>
+  </div>
+
+  <div class="footer">Planificación Empaque Navidad · Cemaco · Generado el <span id="footer-date"></span> · 7 tareas · Fase 1</div>
+</div>
+
+<script>
+const d=new Date().toLocaleDateString('es-GT',{year:'numeric',month:'long',day:'numeric'});
+document.getElementById('live-date').textContent=d;
+document.getElementById('footer-date').textContent=d;
+
+new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[2,1,4],backgroundColor:['#1BA85D','#C8970A','#C8C6BF'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
+
+const statusClassMap={all:'active-all',done:'active-done',proc:'active-proc',pend:'active-pend'};
+const statusIds=['mc-all','mc-done','mc-proc','mc-pend','fb-all','fb-done','fb-proc','fb-pend'];
+let activeStatus='all';
+
+function clearStatus(){
+  statusIds.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.classList.remove('active-all','active-done','active-proc','active-pend');
+  });
+}
+function applyFilters(){
+  let vis=0;
+  document.querySelectorAll('.task-row').forEach(row=>{
+    const show=activeStatus==='all'||row.dataset.s===activeStatus;
+    row.classList.toggle('hidden',!show);
+    if(show) vis++;
+  });
+  document.getElementById('task-count').textContent=vis+' tarea'+(vis!==1?'s':'');
+  document.getElementById('empty-msg').style.display=vis===0?'block':'none';
+}
+function filter(type,el){
+  activeStatus=type;
+  clearStatus();
+  const mc=document.getElementById('mc-'+type);
+  const fb=document.getElementById('fb-'+type);
+  if(mc) mc.classList.add(statusClassMap[type]);
+  if(fb) fb.classList.add(statusClassMap[type]);
+  applyFilters();
+}
+</script>
+</body>
+</html>
