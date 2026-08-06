@@ -107,12 +107,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div class="topbar-logo">C</div>
     <div>
       <div class="topbar-name">Precio por Volumen</div>
-      <div class="topbar-sub">Cemaco · 2 fases · Abr – Ago 2026</div>
+      <div class="topbar-sub">Cemaco · 2 fases · Abr – Ago 2026 · Cerrado</div>
     </div>
   </div>
   <div class="topbar-right">
     <a href="portal_erick.html" class="back-btn">← Portal</a>
-    <span class="topbar-pill">En proceso</span>
+    <span class="topbar-pill">✅ Completado</span>
     <span class="topbar-date" id="live-date"></span>
   </div>
 </div>
@@ -127,21 +127,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
     <div class="mc mc-done" id="mc-done" onclick="filter('done',this)">
       <div class="mc-label">Completadas</div>
-      <div class="mc-val green">3</div>
-      <div class="mc-sub">60% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:60%;background:var(--green);"></div></div>
+      <div class="mc-val green">5</div>
+      <div class="mc-sub">100% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:100%;background:var(--green);"></div></div>
     </div>
     <div class="mc mc-proc" id="mc-proc" onclick="filter('proc',this)">
       <div class="mc-label">En proceso</div>
-      <div class="mc-val amber">1</div>
-      <div class="mc-sub">20% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:20%;background:var(--amber);"></div></div>
+      <div class="mc-val amber">0</div>
+      <div class="mc-sub">0% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:0%;background:var(--amber);"></div></div>
     </div>
     <div class="mc mc-pend" id="mc-pend" onclick="filter('pend',this)">
       <div class="mc-label">Pendientes</div>
-      <div class="mc-val">1</div>
-      <div class="mc-sub">20% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:20%;background:var(--border2);"></div></div>
+      <div class="mc-val">0</div>
+      <div class="mc-sub">0% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:0%;background:var(--border2);"></div></div>
     </div>
     <div class="mc mc-f1" id="mc-f1" onclick="filterFase('f1',this)">
       <div class="mc-label">Fase 1</div>
@@ -165,23 +165,23 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <div class="phase-bar-wrap">
         <div class="phase-label">
           <span class="phase-name">Fase 2 — Ajustes y mejoras</span>
-          <span class="phase-pct" style="color:var(--amber);">En curso</span>
+          <span class="phase-pct" style="color:var(--green);">100%</span>
         </div>
-        <div class="phase-bar-bg"><div class="phase-bar-fill" style="width:25%;background:var(--amber);"></div></div>
-        <div class="phase-sub">0 completadas · 1 en proceso · 1 pendiente de 2 tareas</div>
+        <div class="phase-bar-bg"><div class="phase-bar-fill" style="width:100%;background:var(--green);"></div></div>
+        <div class="phase-sub">2 de 2 tareas completadas ✅</div>
       </div>
       <div style="margin-top:16px;">
         <div class="phase-label">
           <span class="phase-name" style="font-size:13px;">Avance global del proyecto</span>
-          <span class="phase-pct" style="color:var(--amber);font-size:14px;">60%</span>
+          <span class="phase-pct" style="color:var(--green);font-size:14px;">100%</span>
         </div>
-        <div class="phase-bar-bg" style="height:8px;"><div class="phase-bar-fill" style="width:60%;background:var(--amber);"></div></div>
+        <div class="phase-bar-bg" style="height:8px;"><div class="phase-bar-fill" style="width:100%;background:var(--green);"></div></div>
       </div>
       <div class="donut-wrap"><canvas id="donut"></canvas></div>
       <div class="legend-row">
-        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (3)</div>
-        <div class="leg"><div class="leg-dot" style="background:#C8970A;"></div>En proceso (1)</div>
-        <div class="leg"><div class="leg-dot" style="background:#C8C6BF;"></div>Pendiente (1)</div>
+        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (5)</div>
+        <div class="leg"><div class="leg-dot" style="background:#C8970A;"></div>En proceso (0)</div>
+        <div class="leg"><div class="leg-dot" style="background:#C8C6BF;"></div>Pendiente (0)</div>
       </div>
     </div>
     <div class="card">
@@ -194,17 +194,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         </div>
       </div>
       <div class="alert-item">
-        <div class="alert-ico a-warn">⚠️</div>
+        <div class="alert-ico a-ok">✅</div>
         <div>
-          <div class="alert-title">Ajustes contra Construcemaco en proceso</div>
-          <div class="alert-body">Erick trabajando la validación desde el 13-jul, con cierre estimado el 3-ago.</div>
+          <div class="alert-title">Fase 2 completada al 100%</div>
+          <div class="alert-body">Ajustes de validación contra Construcemaco cerrados y solicitud de usuario para consola de ofertas completada.</div>
         </div>
       </div>
       <div class="alert-item">
-        <div class="alert-ico a-info">ℹ️</div>
+        <div class="alert-ico a-ok">✅</div>
         <div>
-          <div class="alert-title">Solicitud de usuario pendiente</div>
-          <div class="alert-body">Consola de ofertas: la solicitud de usuario inicia el 10-ago, aún no arranca.</div>
+          <div class="alert-title">Proyecto cerrado — ambas fases al 100%</div>
+          <div class="alert-body">No quedan tareas pendientes en Precio por Volumen.</div>
         </div>
       </div>
     </div>
@@ -214,9 +214,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="filter-row">
     <span style="font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;">Estado:</span>
     <button class="fb active-all" id="fb-all" onclick="filter('all',this)">Todos (5)</button>
-    <button class="fb" id="fb-done" onclick="filter('done',this)">Completado (3)</button>
-    <button class="fb" id="fb-proc" onclick="filter('proc',this)">En proceso (1)</button>
-    <button class="fb" id="fb-pend" onclick="filter('pend',this)">Pendiente (1)</button>
+    <button class="fb" id="fb-done" onclick="filter('done',this)">Completado (5)</button>
+    <button class="fb" id="fb-proc" onclick="filter('proc',this)">En proceso (0)</button>
+    <button class="fb" id="fb-pend" onclick="filter('pend',this)">Pendiente (0)</button>
     <span style="font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-left:8px;">Fase:</span>
     <button class="fb" id="fb-f1" onclick="filterFase('f1',this)">Fase 1</button>
     <button class="fb" id="fb-f2" onclick="filterFase('f2',this)">Fase 2</button>
@@ -239,17 +239,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div id="phase2-header" class="phase-header">
       <span class="phase-tag ph-f2">FASE 2 — Ajustes y mejoras</span>
       <div class="ph-line"></div>
-      <span style="font-size:11px;color:var(--amber);font-weight:600;">En curso 🟡</span>
+      <span style="font-size:11px;color:var(--green);font-weight:600;">100% ✅</span>
     </div>
 
-    <div class="task-row" data-s="proc" data-f="f2"><span class="task-num">04</span><div class="task-body"><div class="task-name">Realizar ajustes para validación contra Construcemaco</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>13 jul – 3 ago 2026</span><span class="weeks-chip">3 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-proc">En proceso</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:50%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">04</span><div class="task-body"><div class="task-name">Realizar ajustes para validación contra Construcemaco</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>13 jul – 3 ago 2026</span><span class="weeks-chip">3 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-done">Completado</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="pend" data-f="f2"><span class="task-num">05</span><div class="task-body"><div class="task-name">Solicitud de usuario para consola de ofertas</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>10 ago – 17 ago 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-pend">Pendiente</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+    <div class="task-row" data-s="done" data-f="f2"><span class="task-num">05</span><div class="task-body"><div class="task-name">Solicitud de usuario para consola de ofertas</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>10 ago – 17 ago 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-done">Completado</span></div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
     <div class="empty-msg" id="empty-msg">No hay tareas para este estado.</div>
   </div>
 
-  <div class="footer">Precio por Volumen · Cemaco · Generado el <span id="footer-date"></span> · 5 tareas · 2 fases</div>
+  <div class="footer">Precio por Volumen · Cemaco · Generado el <span id="footer-date"></span> · 5 tareas · 2 fases · ✅ Cerrado</div>
 </div>
 
 <script>
@@ -257,7 +257,7 @@ const d=new Date().toLocaleDateString('es-GT',{year:'numeric',month:'long',day:'
 document.getElementById('live-date').textContent=d;
 document.getElementById('footer-date').textContent=d;
 
-new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[3,1,1],backgroundColor:['#1BA85D','#C8970A','#C8C6BF'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
+new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[5,0,0],backgroundColor:['#1BA85D','#C8970A','#C8C6BF'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
 
 const statusClassMap={all:'active-all',done:'active-done',proc:'active-proc',pend:'active-pend'};
 const faseClassMap={f1:'active-f1',f2:'active-f2'};
