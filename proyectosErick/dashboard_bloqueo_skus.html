@@ -117,15 +117,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
     <div class="mc mc-done" id="mc-done" onclick="filter('done',this)">
       <div class="mc-label">Completadas</div>
-      <div class="mc-val green">6</div>
-      <div class="mc-sub">75% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:75%;background:var(--green);"></div></div>
+      <div class="mc-val green">7</div>
+      <div class="mc-sub">88% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:88%;background:var(--green);"></div></div>
     </div>
     <div class="mc mc-proc" id="mc-proc" onclick="filter('proc',this)">
       <div class="mc-label">En proceso</div>
-      <div class="mc-val amber">1</div>
-      <div class="mc-sub">12% del total</div>
-      <div class="mc-bar"><div class="mc-bar-fill" style="width:12%;background:var(--amber);"></div></div>
+      <div class="mc-val amber">0</div>
+      <div class="mc-sub">0% del total</div>
+      <div class="mc-bar"><div class="mc-bar-fill" style="width:0%;background:var(--amber);"></div></div>
     </div>
     <div class="mc mc-pend" id="mc-pend" onclick="filter('pend',this)">
       <div class="mc-label">Pendientes</div>
@@ -141,15 +141,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <div class="phase-bar-wrap">
         <div class="phase-label">
           <span class="phase-name" style="font-size:13px;">Avance global del proyecto</span>
-          <span class="phase-pct" style="color:var(--amber);font-size:14px;">75%</span>
+          <span class="phase-pct" style="color:var(--green);font-size:14px;">88%</span>
         </div>
-        <div class="phase-bar-bg" style="height:10px;"><div class="phase-bar-fill" style="width:75%;background:var(--amber);"></div></div>
-        <div class="phase-sub">6 de 8 tareas completadas</div>
+        <div class="phase-bar-bg" style="height:10px;"><div class="phase-bar-fill" style="width:88%;background:var(--green);"></div></div>
+        <div class="phase-sub">7 de 8 tareas completadas</div>
       </div>
       <div class="donut-wrap"><canvas id="donut"></canvas></div>
       <div class="legend-row">
-        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (6)</div>
-        <div class="leg"><div class="leg-dot" style="background:#C8970A;"></div>En proceso (1)</div>
+        <div class="leg"><div class="leg-dot" style="background:#1BA85D;"></div>Completado (7)</div>
+        <div class="leg"><div class="leg-dot" style="background:#C8970A;"></div>En proceso (0)</div>
         <div class="leg"><div class="leg-dot" style="background:#C8C6BF;"></div>Pendiente (1)</div>
       </div>
     </div>
@@ -170,10 +170,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         </div>
       </div>
       <div class="alert-item">
-        <div class="alert-ico a-info">ℹ️</div>
+        <div class="alert-ico a-ok">✅</div>
         <div>
           <div class="alert-title">Correos de compras identificados</div>
-          <div class="alert-body">comprasferre@cemaco.com y comprashogar@cemaco.co — en proceso de uso para la implementación.</div>
+          <div class="alert-body">comprasferre@cemaco.com y comprashogar@cemaco.co — ya identificados y listos para la implementación.</div>
         </div>
       </div>
       <div class="alert-item">
@@ -190,8 +190,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="filter-row">
     <span style="font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;">Estado:</span>
     <button class="fb active-all" id="fb-all" onclick="filter('all',this)">Todos (8)</button>
-    <button class="fb" id="fb-done" onclick="filter('done',this)">Completado (6)</button>
-    <button class="fb" id="fb-proc" onclick="filter('proc',this)">En proceso (1)</button>
+    <button class="fb" id="fb-done" onclick="filter('done',this)">Completado (7)</button>
+    <button class="fb" id="fb-proc" onclick="filter('proc',this)">En proceso (0)</button>
     <button class="fb" id="fb-pend" onclick="filter('pend',this)">Pendiente (1)</button>
     <span style="font-size:12px;color:var(--text3);margin-left:auto;" id="task-count">8 tareas</span>
   </div>
@@ -201,17 +201,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
     <div class="task-row" data-s="done"><span class="task-num">02</span><div class="task-body"><div class="task-name">Realizar sesión con Pablo Gómez</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>23 feb – 9 mar 2026</span><span class="weeks-chip">2 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-done">Completado</span></div><div class="task-comment">Se validó con la asesora de SAP si la marca de borrado aplica solo a la vista de compras y no a reabastecimiento local o compra internacional.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="done"><span class="task-num">03</span><div class="task-body"><div class="task-name">Marca de borrado</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>6 abr – 4 may 2026</span><span class="weeks-chip">4 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Pablo</span><span class="badge b-done">Completado</span></div><div class="task-comment">Requirió programación en SAP; se evaluó si lo hacía Selvin (programador) o con apoyo de consultoría externa.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
+    <div class="task-row" data-s="done"><span class="task-num">03</span><div class="task-body"><div class="task-name">Marca de borrado</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>23 feb – 6 jul 2026</span><span class="weeks-chip">Extendida</span></div><div class="task-meta-row"><span class="badge b-blue">Pablo</span><span class="badge b-done">Completado</span></div><div class="task-comment">Se solicitó verificar con la asesora de SAP si la marca de borrado aplica solo a la vista de compras y no a reabastecimiento local o compra internacional. Pablo indica que sí hay un camino pero requiere programación en SAP; se evaluó si lo hacía Selvin (programador) o con apoyo de consultoría externa.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="done"><span class="task-num">04</span><div class="task-body"><div class="task-name">Prueba y demostración de funcionamiento</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>13 jul – 20 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Erick / Desarrollo / Pablo</span><span class="badge b-done">Completado</span></div><div class="task-comment">Demostración de funcionamiento coordinada con base de datos, quienes lo operarán.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
+    <div class="task-row" data-s="done"><span class="task-num">04</span><div class="task-body"><div class="task-name">Prueba y demostración de funcionamiento</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>13 jul – 3 ago 2026</span><span class="weeks-chip">3 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Erick / Desarrollo / Pablo</span><span class="badge b-done">Completado</span></div><div class="task-comment">Demostración de funcionamiento coordinada con base de datos, quienes lo operarán.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="done"><span class="task-num">05</span><div class="task-body"><div class="task-name">Coordinar con base de datos cómo se va a operar</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 jul – 27 jul 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Erick / Jorge</span><span class="badge b-done">Completado</span></div><div class="task-comment">Se definió el flujo: 1) Erick envía la solicitud de bloqueo, 2) proceso de desbloqueo para quitar la marca de un producto.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
+    <div class="task-row" data-s="done"><span class="task-num">05</span><div class="task-body"><div class="task-name">Coordinar con base de datos cómo se va a operar</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>27 jul – 3 ago 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-purple">Erick / Jorge</span><span class="badge b-done">Completado</span></div><div class="task-comment">Se definió el flujo: 1) Erick envía la solicitud de bloqueo, 2) proceso de desbloqueo para quitar la marca de un producto.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="done"><span class="task-num">06</span><div class="task-body"><div class="task-name">Validar el proceso para aplicar la marca de borrado</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>27 jul – 3 ago 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-done">Completado</span></div><div class="task-comment">Validado con Jessi/Lili cómo debería aplicarse y quitarse la marca, y qué validaciones debe llevar.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
+    <div class="task-row" data-s="done"><span class="task-num">06</span><div class="task-body"><div class="task-name">Validar el proceso para aplicar la marca de borrado</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>3 ago – 10 ago 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-done">Completado</span></div><div class="task-comment">Validado con Jessi/Lili cómo debería aplicarse y quitarse la marca, y qué validaciones debe llevar.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="proc"><span class="task-num">07</span><div class="task-body"><div class="task-name">Conseguir correos de compras</div><div class="date-row"><span class="date-chip no-date">Sin fecha</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-proc">En proceso</span></div><div class="task-comment">Identificados: comprasferre@cemaco.com y comprashogar@cemaco.co.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-proc" style="width:50%;"></div></div></div></div>
+    <div class="task-row" data-s="done"><span class="task-num">07</span><div class="task-body"><div class="task-name">Conseguir correos de compras</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>13 jul – 27 jul 2026</span><span class="weeks-chip">2 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-done">Completado</span></div><div class="task-comment">Identificados: comprasferre@cemaco.com y comprashogar@cemaco.co.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-done" style="width:100%;"></div></div></div></div>
 
-    <div class="task-row" data-s="pend"><span class="task-num">08</span><div class="task-body"><div class="task-name">Socializar el procedimiento con BD implementación en Cemaco</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>3 ago – 10 ago 2026</span><span class="weeks-chip">1 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-pend">Pendiente</span></div><div class="task-comment">Falta definir con Lili cómo comunicar el procedimiento a BD. Ver el manual.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
+    <div class="task-row" data-s="pend"><span class="task-num">08</span><div class="task-body"><div class="task-name">Socializar el procedimiento con BD implementación en Cemaco</div><div class="date-row"><span class="date-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>10 ago – 7 sep 2026</span><span class="weeks-chip">4 sem</span></div><div class="task-meta-row"><span class="badge b-blue">Erick</span><span class="badge b-pend">Pendiente</span></div><div class="task-comment">Falta definir con Lili cómo comunicar el procedimiento a BD. Ver el manual.</div><div class="mini-bar-bg"><div class="mini-bar-fill bar-pend" style="width:0%;"></div></div></div></div>
 
     <div class="empty-msg" id="empty-msg">No hay tareas para este estado.</div>
   </div>
@@ -224,7 +224,7 @@ const d=new Date().toLocaleDateString('es-GT',{year:'numeric',month:'long',day:'
 document.getElementById('live-date').textContent=d;
 document.getElementById('footer-date').textContent=d;
 
-new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[6,1,1],backgroundColor:['#1BA85D','#C8970A','#C8C6BF'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
+new Chart(document.getElementById('donut'),{type:'doughnut',data:{labels:['Completado','En proceso','Pendiente'],datasets:[{data:[7,0,1],backgroundColor:['#1BA85D','#C8970A','#C8C6BF'],borderWidth:2,borderColor:'#fff',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout:'72%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.raw+' tareas'}}}}});
 
 const statusClassMap={all:'active-all',done:'active-done',proc:'active-proc',pend:'active-pend'};
 const statusIds=['mc-all','mc-done','mc-proc','mc-pend','fb-all','fb-done','fb-proc','fb-pend'];
