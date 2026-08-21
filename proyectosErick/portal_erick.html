@@ -70,7 +70,7 @@
     <div class="panel">
       <h2>Avance general del portal</h2>
       <div class="big-num" id="avg-pct">0%</div>
-      <div class="big-label">Promedio de avance (11 proyectos)</div>
+      <div class="big-label">Promedio de avance (12 proyectos)</div>
       <div class="stat-row"><span><span class="dot" style="background:#1BA85D"></span>Completados</span><span id="s-completado">0</span></div>
       <div class="stat-row"><span><span class="dot" style="background:#C8970A"></span>En proceso</span><span id="s-proceso">0</span></div>
       <div class="stat-row"><span><span class="dot" style="background:#4B5BB8"></span>En pausa</span><span id="s-pausa">0</span></div>
@@ -100,7 +100,8 @@ const projects = [
   {num:"08", name:"Planeación Agregada", estado:"Pendiente", pct:null, dash:null},
   {num:"09", name:"Agente de OTB", estado:"Pendiente", pct:null, dash:null},
   {num:"10", name:"Planificación Empaque Navidad", estado:"En Proceso", pct:73, dash:"dashboard_empaque_navidad.html"},
-  {num:"11", name:"Validación Precios por Volumen SAE", estado:"En Proceso", pct:null, dash:"dashboard_validacion_sae.html", note:"Diagnóstico en curso"}
+  {num:"11", name:"Validación Precios por Volumen SAE", estado:"En Proceso", pct:null, dash:"dashboard_validacion_sae.html", note:"Diagnóstico en curso"},
+  {num:"12", name:"Configuración MRP: Material de Empaque", estado:"En Proceso", pct:79, dash:"dashboard_mrp_empaque.html"}
 ];
 
 const estColors = {Completado:"#1BA85D","En Proceso":"#C8970A","En Pausa":"#4B5BB8",Pendiente:"#C8C6BF"};
@@ -169,7 +170,7 @@ new Chart(document.getElementById('donut'), {
   options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom', labels:{font:{family:'DM Sans'}}}} }
 });
 
-document.getElementById('footer').textContent = `Portal generado automáticamente el ${new Date().toLocaleDateString('es-GT',{day:'numeric',month:'long',year:'numeric'})} · 11 proyectos activos`;
+document.getElementById('footer').textContent = `Portal generado automáticamente el ${new Date().toLocaleDateString('es-GT',{day:'numeric',month:'long',year:'numeric'})} · 12 proyectos activos`;
 
 render();
 </script>
