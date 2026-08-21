@@ -3,736 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal de Proyectos — Erick · Cemaco</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Portal de Proyectos — Pricing & BI Cemaco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg:        #F4F3EF;
-  --surface:   #FFFFFF;
-  --border:    #E2E0DA;
-  --border2:   #C8C6BF;
-  --text:      #1A1916;
-  --text2:     #6B6962;
-  --text3:     #9E9C96;
-  --green:     #1BA85D;
-  --green-bg:  #D9F4E8;
-  --green-dk:  #0E6637;
-  --blue:      #101E8E;
-  --blue-bg:   #F0EFFA;
-  --blue-lt:   #E4E8FB;
-  --amber:     #C8970A;
-  --amber-bg:  #FEF8E0;
-  --amber-dk:  #7A5C00;
-  --gray:      #5F5E5A;
-  --gray-bg:   #EEEDEA;
-  --pause-bg:  #F0EFFA;
-  --pause:     #4B5BB8;
-  --red-bg:    #FDEAEA;
-  --orange:    #FF6400;
-  --radius:    12px;
-  --radius-sm: 7px;
-  --shadow:    0 2px 12px rgba(0,0,0,0.06);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
-}
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  font-size: 14px;
-}
-
-/* ── TOPBAR ── */
-.topbar {
-  background: var(--blue);
-  color: #fff;
-  padding: 0 40px;
-  height: 58px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 200;
-}
-.topbar-left { display: flex; align-items: center; gap: 14px; }
-.topbar-logo {
-  width: 36px; height: 36px; border-radius: 9px;
-  background: var(--orange);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px; font-weight: 700; color: #fff; letter-spacing: -0.5px;
-  flex-shrink: 0;
-}
-.topbar-title { font-size: 15px; font-weight: 500; }
-.topbar-sub   { font-size: 11px; opacity: 0.5; margin-top: 1px; }
-.topbar-right { display: flex; align-items: center; gap: 10px; }
-.topbar-badge { background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 99px; font-size: 11px; font-weight: 500; }
-.topbar-date  { font-size: 12px; opacity: 0.45; font-family: 'DM Mono', monospace; }
-
-/* ── HERO ── */
-.hero {
-  background: var(--blue);
-  padding: 36px 40px 48px;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  right: -60px; bottom: -80px;
-  width: 320px; height: 320px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.04);
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  right: 80px; bottom: -40px;
-  width: 180px; height: 180px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.05);
-}
-.hero-label { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: 0.5; margin-bottom: 10px; }
-.hero-name  { font-size: 32px; font-weight: 600; letter-spacing: -1px; margin-bottom: 4px; }
-.hero-role  { font-size: 14px; opacity: 0.55; margin-bottom: 28px; }
-.hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
-.hero-stat  { }
-.hero-stat-val { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; font-family: 'DM Mono', monospace; }
-.hero-stat-lab { font-size: 11px; opacity: 0.5; margin-top: 2px; text-transform: uppercase; letter-spacing: .05em; }
-
-/* ── FILTER BAR ── */
-.filter-bar {
-  max-width: 1160px; margin: 0 auto;
-  padding: 16px 24px 0;
-  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-}
-.filter-label { font-size: 11px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; margin-right: 4px; }
-.fb {
-  padding: 5px 14px; border-radius: 99px;
-  border: 1.5px solid var(--border2);
-  background: var(--surface);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px; font-weight: 500; color: var(--text2);
-  cursor: pointer; transition: all 0.15s;
-}
-.fb:hover { background: var(--gray-bg); }
-.fb.active-all   { background: var(--blue);    color: #fff; border-color: var(--blue); }
-.fb.active-proc  { background: var(--amber-bg); color: var(--amber-dk); border-color: var(--amber); }
-.fb.active-done  { background: var(--green-bg); color: var(--green-dk); border-color: var(--green); }
-.fb.active-pause { background: var(--blue-bg);  color: var(--pause);    border-color: var(--pause); }
-
-/* ── GRID ── */
-.grid {
-  max-width: 1160px; margin: 20px auto 60px;
-  padding: 0 24px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-/* ── PROJECT CARD ── */
-.pc {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 22px;
-  display: flex; flex-direction: column;
-  gap: 14px;
-  transition: transform 0.18s, box-shadow 0.18s;
-  position: relative;
-  overflow: hidden;
-  animation: fadeUp 0.4s ease both;
-}
-.pc::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-.pc-proc::before  { background: var(--amber); }
-.pc-done::before  { background: var(--green); }
-.pc-pause::before { background: var(--pause); }
-.pc-prio::before  { background: var(--blue-lt); }
-.pc:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-.pc.hidden { display: none; }
-
-.pc-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
-.pc-num {
-  font-size: 11px; font-family: 'DM Mono', monospace;
-  color: var(--text3); font-weight: 500;
-  background: var(--gray-bg); padding: 2px 7px; border-radius: 5px;
-  flex-shrink: 0; margin-top: 2px;
-}
-.pc-title { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.35; flex: 1; }
-
-.badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 11px; font-weight: 500;
-  padding: 3px 10px; border-radius: 99px; white-space: nowrap;
-}
-.b-proc  { background: var(--amber-bg); color: var(--amber-dk); }
-.b-done  { background: var(--green-bg); color: var(--green-dk); }
-.b-pause { background: var(--blue-bg);  color: var(--pause); }
-.b-prio  { background: var(--gray-bg);  color: var(--gray); }
-
-.pc-obj { font-size: 12px; color: var(--text2); line-height: 1.5; }
-
-.pc-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.pc-meta-item { font-size: 11px; color: var(--text3); display: flex; align-items: center; gap: 4px; }
-
-/* progress */
-.pc-progress {}
-.pc-progress-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
-.pc-progress-label  { font-size: 11px; color: var(--text2); }
-.pc-progress-pct    { font-size: 12px; font-weight: 600; font-family: 'DM Mono', monospace; }
-.pc-progress-pct.green { color: var(--green); }
-.pc-progress-pct.amber { color: var(--amber); }
-.pc-progress-pct.pause { color: var(--pause); }
-.pc-bar-bg { height: 6px; background: var(--gray-bg); border-radius: 99px; overflow: hidden; }
-.pc-bar-fill { height: 100%; border-radius: 99px; transition: width 0.8s ease; }
-.fill-proc  { background: var(--amber); }
-.fill-done  { background: var(--green); }
-.fill-pause { background: var(--pause); }
-
-/* task mini pills */
-.pc-tasks { display: flex; gap: 6px; flex-wrap: wrap; }
-.task-pill {
-  font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 99px;
-  background: var(--gray-bg); color: var(--text2);
-}
-.task-pill.done  { background: var(--green-bg); color: var(--green-dk); }
-.task-pill.proc  { background: var(--amber-bg); color: var(--amber-dk); }
-.task-pill.pause { background: var(--blue-bg);  color: var(--pause); }
-
-/* btn */
-.pc-footer { margin-top: auto; padding-top: 4px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.pc-tags   { display: flex; gap: 6px; flex-wrap: wrap; }
-.pc-tag    { font-size: 10px; color: var(--text3); background: var(--gray-bg); padding: 2px 8px; border-radius: 5px; }
-.btn-dash {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 7px 16px; border-radius: var(--radius-sm);
-  background: var(--blue); color: #fff;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px; font-weight: 500;
-  border: none; cursor: pointer;
-  text-decoration: none;
-  transition: background 0.15s, transform 0.1s;
-  white-space: nowrap;
-}
-.btn-dash:hover { background: #1A2EA8; transform: translateY(-1px); }
-.btn-dash.disabled {
-  background: var(--gray-bg); color: var(--text3);
-  cursor: default; pointer-events: none;
-}
-.btn-dash svg { flex-shrink: 0; }
-
-/* prio card special */
-.pc-prio-note {
-  font-size: 12px; color: var(--pause);
-  background: var(--blue-bg);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
-  line-height: 1.45;
-  border-left: 3px solid var(--pause);
-}
-
-/* ── SECTION DIVIDER ── */
-.sec-divider {
-  max-width: 1160px; margin: 8px auto 0; padding: 0 24px;
-  display: flex; align-items: center; gap: 12px;
-}
-.sec-divider-label {
-  font-size: 11px; font-weight: 600; color: var(--text2);
-  text-transform: uppercase; letter-spacing: .08em; white-space: nowrap;
-}
-.sec-divider-line { flex: 1; height: 1px; background: var(--border); }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
-.pc:nth-child(1) { animation-delay: 0.05s; }
-.pc:nth-child(2) { animation-delay: 0.10s; }
-.pc:nth-child(3) { animation-delay: 0.15s; }
-.pc:nth-child(4) { animation-delay: 0.20s; }
-.pc:nth-child(5) { animation-delay: 0.25s; }
-.pc:nth-child(6) { animation-delay: 0.30s; }
-.pc:nth-child(7) { animation-delay: 0.35s; }
-.pc:nth-child(8) { animation-delay: 0.40s; }
-.pc:nth-child(9) { animation-delay: 0.45s; }
-.pc:nth-child(10) { animation-delay: 0.50s; }
-.pc:nth-child(11) { animation-delay: 0.55s; }
-
-/* ── FOOTER ── */
-.footer {
-  text-align: center; font-size: 11px; color: var(--text3);
-  padding: 20px 0 40px;
-  border-top: 1px solid var(--border);
-  max-width: 1160px; margin: 0 auto;
-}
-
-@media (max-width: 960px) { .grid { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .hero { padding: 24px 20px 36px; } .topbar { padding: 0 16px; } }
+  :root{
+    --verde:#1BA85D; --verde-bg:#D9F4E8;
+    --azul:#101E8E; --azul-bg:#F0EFFA;
+    --ambar:#C8970A; --ambar-bg:#FEF8E0;
+    --gris:#C8C6BF; --gris-bg:#EEEDEA;
+    --pausa:#4B5BB8; --pausa-bg:#ECEEF9;
+    --text:#1A1D29; --muted:#6B7280;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;margin:0;background:#F7F8FA;color:var(--text);}
+  .topbar{background:var(--azul);color:#fff;padding:18px 28px;display:flex;align-items:center;gap:16px;}
+  .logo{width:40px;height:40px;border-radius:10px;background:#FF7A1A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:21px;}
+  .topbar h1{font-size:19px;margin:0;font-weight:700;}
+  .topbar .sub{font-size:12px;opacity:.8;}
+  .container{max-width:1200px;margin:0 auto;padding:28px;}
+  .summary{display:grid;grid-template-columns:1fr 1.6fr;gap:20px;margin-bottom:26px;}
+  .panel{background:#fff;border-radius:14px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  .panel h2{font-size:15px;margin:0 0 14px;}
+  .big-num{font-size:40px;font-weight:800;color:var(--azul);}
+  .big-label{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:16px;}
+  .stat-row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid #F0F0F0;}
+  .stat-row:last-child{border-bottom:none;}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;}
+  .filters{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+  .filter-btn{border:1px solid var(--gris);background:#fff;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;color:var(--muted);}
+  .filter-btn.active{background:var(--azul);color:#fff;border-color:var(--azul);}
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;}
+  .proj-card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;gap:12px;}
+  .proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .proj-num{font-size:12px;color:var(--muted);font-weight:700;}
+  .proj-name{font-size:15px;font-weight:700;line-height:1.3;}
+  .badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;white-space:nowrap;}
+  .badge.Completado{background:var(--verde-bg);color:var(--verde);}
+  .badge.EnProceso{background:var(--ambar-bg);color:var(--ambar);}
+  .badge.EnPausa{background:var(--pausa-bg);color:var(--pausa);}
+  .badge.Pendiente{background:var(--gris-bg);color:#8A857C;}
+  .progbar{width:100%;height:8px;background:var(--gris-bg);border-radius:5px;overflow:hidden;}
+  .progbar span{display:block;height:100%;}
+  .proj-bottom{display:flex;justify-content:space-between;align-items:center;}
+  .pct{font-size:13px;font-weight:700;color:var(--muted);}
+  .view-btn{background:var(--azul);color:#fff;text-decoration:none;font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:8px;}
+  .view-btn:hover{background:#0c1670;}
+  .closed-badge{background:var(--verde-bg);color:var(--verde);font-size:11.5px;font-weight:700;padding:6px 12px;border-radius:8px;text-align:center;}
+  .no-dash{font-size:12px;color:var(--muted);font-style:italic;}
+  footer{text-align:center;padding:24px;color:var(--muted);font-size:12px;}
 </style>
 </head>
 <body>
-
-<!-- TOPBAR -->
 <div class="topbar">
-  <div class="topbar-left">
-    <div class="topbar-logo">C</div>
-    <div>
-      <div class="topbar-title">Cemaco · Portafolio de Proyectos</div>
-      <div class="topbar-sub">Área de Pricing &amp; Inteligencia Comercial</div>
-    </div>
-  </div>
-  <div class="topbar-right">
-    <span class="topbar-badge">12 proyectos</span>
-    <span class="topbar-date" id="live-date"></span>
+  <div class="logo">C</div>
+  <div>
+    <h1>Portal de Proyectos — Pricing & BI</h1>
+    <div class="sub">Cemaco Guatemala</div>
   </div>
 </div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-label">Responsable</div>
-  <div class="hero-name">Erick</div>
-  <div class="hero-role">Pricing &amp; Business Intelligence · Cemaco Guatemala</div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-val">12</div>
-      <div class="hero-stat-lab">Proyectos totales</div>
+<div class="container">
+  <div class="summary">
+    <div class="panel">
+      <h2>Avance general del portal</h2>
+      <div class="big-num" id="avg-pct">0%</div>
+      <div class="big-label">Promedio de avance (11 proyectos)</div>
+      <div class="stat-row"><span><span class="dot" style="background:#1BA85D"></span>Completados</span><span id="s-completado">0</span></div>
+      <div class="stat-row"><span><span class="dot" style="background:#C8970A"></span>En proceso</span><span id="s-proceso">0</span></div>
+      <div class="stat-row"><span><span class="dot" style="background:#4B5BB8"></span>En pausa</span><span id="s-pausa">0</span></div>
+      <div class="stat-row"><span><span class="dot" style="background:#C8C6BF"></span>Pendientes de priorizar</span><span id="s-pendiente">0</span></div>
     </div>
-    <div class="hero-stat">
-      <div class="hero-stat-val">3</div>
-      <div class="hero-stat-lab">Completados</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-val">6</div>
-      <div class="hero-stat-lab">En proceso</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-val">3</div>
-      <div class="hero-stat-lab">En pausa</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-val">64%</div>
-      <div class="hero-stat-lab">Avance promedio</div>
+    <div class="panel">
+      <h2>Distribución por estado</h2>
+      <canvas id="donut" height="180"></canvas>
     </div>
   </div>
+
+  <div class="filters" id="filters"></div>
+  <div class="proj-grid" id="proj-grid"></div>
 </div>
 
-<!-- FILTER BAR -->
-<div class="filter-bar">
-  <span class="filter-label">Filtrar:</span>
-  <button class="fb active-all" onclick="filterCards('all',this)">Todos</button>
-  <button class="fb" onclick="filterCards('proc',this)">En proceso</button>
-  <button class="fb" onclick="filterCards('done',this)">Completados</button>
-  <button class="fb" onclick="filterCards('pause',this)">En pausa</button>
-</div>
-
-<!-- GRID -->
-<div class="grid" id="cards-grid">
-  <!-- 12 · CONFIGURACIÓN MRP MATERIAL DE EMPAQUE -->
-  <div class="pc pc-proc" data-s="proc">
-    <div class="pc-header">
-      <span class="pc-num">12</span>
-      <div class="pc-title">Configuración MRP: Material de Empaque</div>
-      <span class="badge b-proc">🟡 En proceso</span>
-    </div>
-    <div class="pc-obj">Configurar el módulo MRP para gestión automática de reorden de material de empaque, con piloto validado en tienda T004 / centro B001 y replicado a las 25 tiendas.</div>
-    <div class="pc-tasks">
-      <span class="task-pill done">11 completadas</span>
-      <span class="task-pill">3 pendientes</span>
-    </div>
-    <div class="pc-progress">
-      <div class="pc-progress-header">
-        <span class="pc-progress-label">Avance general</span>
-        <span class="pc-progress-pct amber">79%</span>
-      </div>
-      <div class="pc-bar-bg"><div class="pc-bar-fill fill-proc" style="width:79%;"></div></div>
-    </div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">MRP</span>
-        <span class="pc-tag">Empaque</span>
-        <span class="pc-tag">SAP</span>
-      </div>
-      <a href="dashboard_mrp_empaque.html" class="btn-dash">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Ver dashboard
-      </a>
-    </div>
-  </div>
-
-
-<!-- 11 · VALIDACIÓN PRECIOS POR VOLUMEN SAE -->
-  <div class="pc pc-proc" data-s="proc">
-    <div class="pc-header">
-      <span class="pc-num">11</span>
-      <div class="pc-title">Validación Precios por Volumen SAE</div>
-      <span class="badge b-proc">🟡 En proceso</span>
-    </div>
-    <div class="pc-obj">Diagnóstico para la elaboración de una solución de validación de precios por volumen en SAE.</div>
-    <div class="pc-tasks">
-      <span class="task-pill proc">1 en proceso</span>
-    </div>
-    <div class="pc-progress">
-      <div class="pc-progress-header">
-        <span class="pc-progress-label">Avance general</span>
-        <span class="pc-progress-pct amber">En curso</span>
-      </div>
-      <div class="pc-bar-bg"><div class="pc-bar-fill fill-proc" style="width:50%;"></div></div>
-    </div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">SAE</span>
-        <span class="pc-tag">Pricing</span>
-      </div>
-      <a href="dashboard_validacion_sae.html" class="btn-dash">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Ver dashboard
-      </a>
-    </div>
-  </div>
-
-<!-- 10 · PLANIFICACIÓN EMPAQUE NAVIDAD -->
-  <div class="pc pc-proc" data-s="proc">
-    <div class="pc-header">
-      <span class="pc-num">10</span>
-      <div class="pc-title">Planificación Empaque Navidad</div>
-      <span class="badge b-proc">🟡 En proceso</span>
-    </div>
-    <div class="pc-obj">Planificación de empaque navideño: proyecciones, ajustes por tienda y coordinación con proveedores de pliegos, moñas, sacos y bolsas.</div>
-    <div class="pc-tasks">
-      <span class="task-pill done">6 completadas</span>
-      <span class="task-pill proc">1 en proceso</span>
-      <span class="task-pill">4 pendientes</span>
-    </div>
-    <div class="pc-progress">
-      <div class="pc-progress-header">
-        <span class="pc-progress-label">Avance Fase 1</span>
-        <span class="pc-progress-pct amber">55%</span>
-      </div>
-      <div class="pc-bar-bg"><div class="pc-bar-fill fill-proc" style="width:55%;"></div></div>
-    </div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">Empaque</span>
-        <span class="pc-tag">Navidad</span>
-        <span class="pc-tag">Fase 1</span>
-      </div>
-      <a href="dashboard_empaque_navidad.html" class="btn-dash">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Ver dashboard
-      </a>
-    </div>
-  </div>
-
-  
-
-<!-- 1 · OTB -->
-  <div class="pc pc-proc" data-s="proc">
-    <div class="pc-header">
-      <span class="pc-num">01</span>
-      <div class="pc-title">Dashboard OTB en Power BI</div>
-      <span class="badge b-proc">🟡 En proceso</span>
-    </div>
-    <div class="pc-obj">Mostrar el avance de OTB para gerentes y líderes de mundo.</div>
-    <div class="pc-tasks">
-      <span class="task-pill done">13 completadas</span>
-      <span class="task-pill proc">1 en proceso</span>
-      <span class="task-pill">2 pendientes</span>
-    </div>
-    <div class="pc-progress">
-      <div class="pc-progress-header">
-        <span class="pc-progress-label">Avance Fase 1</span>
-        <span class="pc-progress-pct amber">81%</span>
-      </div>
-      <div class="pc-bar-bg"><div class="pc-bar-fill fill-proc" style="width:81%;"></div></div>
-    </div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">Power BI</span>
-        <span class="pc-tag">SAP</span>
-        <span class="pc-tag">Fase 1</span>
-      </div>
-      <a href="dashboard_otb_v2.html" class="btn-dash">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Ver dashboard
-      </a>
-    </div>
-  </div>
-
-  
-
-<!-- 2 · BLOQUEO SKUS -->
-  <div class="pc pc-proc" data-s="proc">
-    <div class="pc-header">
-      <span class="pc-num">02</span>
-      <div class="pc-title">Bloqueo de SKUs descontinuados</div>
-      <span class="badge b-proc">🟡 En proceso</span>
-    </div>
-    <div class="pc-obj">Definir el procedimiento de bloqueo en SAP de vista de compras para SKUs descontinuados (Marcas de borrado).</div>
-    <div class="pc-tasks">
-      <span class="task-pill done">7 completadas</span>
-      <span class="task-pill">1 pendiente</span>
-    </div>
-    <div class="pc-progress">
-      <div class="pc-progress-header">
-        <span class="pc-progress-label">Avance general</span>
-        <span class="pc-progress-pct amber">88%</span>
-      </div>
-      <div class="pc-bar-bg"><div class="pc-bar-fill fill-proc" style="width:88%;"></div></div>
-    </div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">SAP</span>
-        <span class="pc-tag">SKU</span>
-        <span class="pc-tag">Compras</span>
-      </div>
-      <a href="dashboard_bloqueo_skus.html" class="btn-dash">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Ver dashboard
-      </a>
-    </div>
-  </div>
-
-  
-
-<!-- 3 · LAMBDA -->
-  <div class="pc pc-proc" data-s="proc">
-    <div class="pc-header">
-      <span class="pc-num">03</span>
-      <div class="pc-title">Validar pronósticos LAMBDA</div>
-      <span class="badge b-proc">🟡 En proceso</span>
-    </div>
-    <div class="pc-obj">Validación del modelo de pronóstico para optimizar mínimos y máximos de inventario.</div>
-    <div class="pc-tasks">
-      <span class="task-pill done">29 completadas</span>
-      <span class="task-pill proc">3 en proceso</span>
-      <span class="task-pill">1 pendiente</span>
-    </div>
-    <div class="pc-progress">
-      <div class="pc-progress-header">
-        <span class="pc-progress-label">Avance Fase 1 + Fase 2</span>
-        <span class="pc-progress-pct amber">88%</span>
-      </div>
-      <div class="pc-bar-bg"><div class="pc-bar-fill fill-proc" style="width:88%;"></div></div>
-    </div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">Lambda</span>
-        <span class="pc-tag">Min/Max</span>
-        <span class="pc-tag">2 Fases</span>
-      </div>
-      <a href="dashboard_lambda.html" class="btn-dash">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Ver dashboard
-      </a>
-    </div>
-  </div>
-
-  
-
-<!-- 8 · PLANEACIÓN AGREGADA -->
-  <div class="pc pc-pause" data-s="pause">
-    <div class="pc-header">
-      <span class="pc-num">08</span>
-      <div class="pc-title">Planeación Agregada</div>
-      <span class="badge b-prio">⏳ Pendiente de priorizar</span>
-    </div>
-    <div class="pc-obj">Proyecto identificado y en espera de priorización para iniciar ejecución.</div>
-    <div class="pc-prio-note">📋 En cola de priorización — Sin inicio definido aún. Se retomará cuando se asigne en el roadmap.</div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">Planeación</span>
-      </div>
-      <button class="btn-dash disabled">
-        Sin dashboard
-      </button>
-    </div>
-  </div>
-
-  
-
-<!-- 9 · AGENTE DE OTB -->
-  <div class="pc pc-pause" data-s="pause">
-    <div class="pc-header">
-      <span class="pc-num">09</span>
-      <div class="pc-title">Agente de OTB</div>
-      <span class="badge b-prio">⏳ Pendiente de priorizar</span>
-    </div>
-    <div class="pc-obj">Proyecto identificado y en espera de priorización para iniciar ejecución.</div>
-    <div class="pc-prio-note">📋 En cola de priorización — Sin inicio definido aún. Se retomará cuando se asigne en el roadmap.</div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">OTB</span>
-        <span class="pc-tag">Agente IA</span>
-      </div>
-      <button class="btn-dash disabled">
-        Sin dashboard
-      </button>
-    </div>
-  </div>
-
-  
-
-<!-- 4 · ELASTICIDAD -->
-  <div class="pc pc-pause" data-s="pause">
-    <div class="pc-header">
-      <span class="pc-num">04</span>
-      <div class="pc-title">Habilitación del Tablero de Elasticidad</div>
-      <span class="badge b-pause">⏸ En pausa</span>
-    </div>
-    <div class="pc-obj">Tablero para análisis de elasticidad de precios por SKU con clasificación y rangos de cálculo.</div>
-    <div class="pc-tasks">
-      <span class="task-pill done">~25 completadas</span>
-      <span class="task-pill pause">4 en pausa</span>
-    </div>
-    <div class="pc-progress">
-      <div class="pc-progress-header">
-        <span class="pc-progress-label">Avance real del proyecto</span>
-        <span class="pc-progress-pct pause">80%</span>
-      </div>
-      <div class="pc-bar-bg"><div class="pc-bar-fill fill-pause" style="width:80%;"></div></div>
-    </div>
-    <div class="pc-prio-note">⏸ En pausa — Se retoma cuando finalice scrapping de precios. Tablero al 80% funcional.</div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">Pricing</span>
-        <span class="pc-tag">BI</span>
-        <span class="pc-tag">Elasticidad</span>
-      </div>
-      <a href="dashboard_elasticidad.html" class="btn-dash">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Ver dashboard
-      </a>
-    </div>
-  </div>
-
-  
-
-<!-- 5 · PRECIO POR VOLUMEN -->
-  <div class="pc pc-done" data-s="done">
-    <div class="pc-header">
-      <span class="pc-num">05</span>
-      <div class="pc-title">Precio por Volumen</div>
-      <span class="badge b-done">✅ Completado</span>
-    </div>
-    <div class="pc-obj">Plantilla y presentación de funcionalidad de precio por volumen para áreas de Hogar y Ferretería. Fase 2 (ajustes de validación contra Construcemaco y consola de ofertas) cerrada.</div>
-    <div class="pc-tasks">
-      <span class="task-pill done">5 completadas</span>
-    </div>
-    <div class="pc-progress">
-      <div class="pc-progress-header">
-        <span class="pc-progress-label">Avance Fase 1 + Fase 2</span>
-        <span class="pc-progress-pct green">100%</span>
-      </div>
-      <div class="pc-bar-bg"><div class="pc-bar-fill fill-done" style="width:100%;"></div></div>
-    </div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">Pricing</span>
-        <span class="pc-tag">Hogar</span>
-        <span class="pc-tag">Ferre</span>
-        <span class="pc-tag">2 Fases</span>
-      </div>
-      <a href="dashboard_precio_volumen.html" class="btn-dash">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Ver dashboard
-      </a>
-    </div>
-  </div>
-
-  
-
-<!-- 6 · MATERIAL DE EMPAQUE -->
-  <div class="pc pc-done" data-s="done">
-    <div class="pc-header">
-      <span class="pc-num">06</span>
-      <div class="pc-title">Material de Empaque</div>
-      <span class="badge b-done">✅ Completado</span>
-    </div>
-    <div class="pc-obj">Plantilla para gestión y seguimiento de material de empaque.</div>
-    <div class="pc-tasks">
-      <span class="task-pill done">1 completada</span>
-    </div>
-    <div class="pc-progress">
-      <div class="pc-progress-header">
-        <span class="pc-progress-label">Avance</span>
-        <span class="pc-progress-pct green">100%</span>
-      </div>
-      <div class="pc-bar-bg"><div class="pc-bar-fill fill-done" style="width:100%;"></div></div>
-    </div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">Empaque</span>
-        <span class="pc-tag">Plantilla</span>
-      </div>
-      <button class="btn-dash disabled">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Cerrado
-      </button>
-    </div>
-  </div>
-
-  
-
-<!-- 7 · LIQUIDACIONES -->
-  <div class="pc pc-done" data-s="done">
-    <div class="pc-header">
-      <span class="pc-num">07</span>
-      <div class="pc-title">Liquidaciones</div>
-      <span class="badge b-done">✅ Completado</span>
-    </div>
-    <div class="pc-obj">Plantilla de seguimiento de liquidaciones con análisis semanal por Erick.</div>
-    <div class="pc-tasks">
-      <span class="task-pill done">1 completada</span>
-    </div>
-    <div class="pc-progress">
-      <div class="pc-progress-header">
-        <span class="pc-progress-label">Avance</span>
-        <span class="pc-progress-pct green">100%</span>
-      </div>
-      <div class="pc-bar-bg"><div class="pc-bar-fill fill-done" style="width:100%;"></div></div>
-    </div>
-    <div class="pc-footer">
-      <div class="pc-tags">
-        <span class="pc-tag">Liquidaciones</span>
-        <span class="pc-tag">Seguimiento</span>
-      </div>
-      <button class="btn-dash disabled">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Cerrado
-      </button>
-    </div>
-  </div>
-
-  
-
-</div>
-
-<div class="footer" style="padding: 20px 24px 40px;">
-  Cemaco · Portafolio Erick · Generado el <span id="footer-date"></span> · 12 proyectos registrados
-</div>
+<footer id="footer"></footer>
 
 <script>
-  const d = new Date().toLocaleDateString('es-GT', {year:'numeric', month:'long', day:'numeric'});
-  document.getElementById('live-date').textContent = d;
-  document.getElementById('footer-date').textContent = d;
+const projects = [
+  {num:"01", name:"Dashboard OTB en Power BI", estado:"En Proceso", pct:88, dash:"dashboard_otb_v2.html"},
+  {num:"02", name:"Bloqueo de SKUs Descontinuados", estado:"En Proceso", pct:86, dash:"dashboard_bloqueo_skus.html"},
+  {num:"03", name:"Validar Pronósticos LAMBDA", estado:"En Proceso", pct:88, dash:"dashboard_lambda.html"},
+  {num:"04", name:"Habilitación del Tablero de Elasticidad", estado:"En Pausa", pct:80, dash:"dashboard_elasticidad.html"},
+  {num:"05", name:"Precio por Volumen", estado:"En Proceso", pct:60, dash:"dashboard_precio_volumen.html"},
+  {num:"06", name:"Material de Empaque", estado:"Completado", pct:100, dash:null},
+  {num:"07", name:"Liquidaciones", estado:"Completado", pct:100, dash:null},
+  {num:"08", name:"Planeación Agregada", estado:"Pendiente", pct:null, dash:null},
+  {num:"09", name:"Agente de OTB", estado:"Pendiente", pct:null, dash:null},
+  {num:"10", name:"Planificación Empaque Navidad", estado:"En Proceso", pct:73, dash:"dashboard_empaque_navidad.html"},
+  {num:"11", name:"Validación Precios por Volumen SAE", estado:"En Proceso", pct:null, dash:"dashboard_validacion_sae.html", note:"Diagnóstico en curso"}
+];
 
-  const classMap = { all:'active-all', proc:'active-proc', done:'active-done', pause:'active-pause' };
+const estColors = {Completado:"#1BA85D","En Proceso":"#C8970A","En Pausa":"#4B5BB8",Pendiente:"#C8C6BF"};
+let activeFilter = "Todos";
 
-  function filterCards(type, btn) {
-    document.querySelectorAll('.fb').forEach(b => b.className = 'fb');
-    btn.classList.add(classMap[type]);
-    document.querySelectorAll('.pc').forEach(card => {
-      const show = type === 'all' || card.dataset.s === type;
-      card.classList.toggle('hidden', !show);
-    });
-  }
+function render(){
+  const completado = projects.filter(p=>p.estado==="Completado").length;
+  const proceso = projects.filter(p=>p.estado==="En Proceso").length;
+  const pausa = projects.filter(p=>p.estado==="En Pausa").length;
+  const pendiente = projects.filter(p=>p.estado==="Pendiente").length;
+
+  const withPct = projects.map(p=>p.pct===null?0:p.pct);
+  const avg = Math.round(withPct.reduce((a,b)=>a+b,0)/projects.length);
+
+  document.getElementById('avg-pct').textContent = avg+'%';
+  document.getElementById('s-completado').textContent = completado;
+  document.getElementById('s-proceso').textContent = proceso;
+  document.getElementById('s-pausa').textContent = pausa;
+  document.getElementById('s-pendiente').textContent = pendiente;
+
+  const filterBtns = ["Todos","En Proceso","Completado","En Pausa","Pendiente"];
+  document.getElementById('filters').innerHTML = filterBtns.map(f=>
+    `<button class="filter-btn ${f===activeFilter?'active':''}" data-f="${f}">${f}</button>`
+  ).join('');
+  document.querySelectorAll('.filter-btn').forEach(b=>b.onclick=()=>{activeFilter=b.dataset.f; render();});
+
+  const shown = activeFilter==="Todos" ? projects : projects.filter(p=>p.estado===activeFilter);
+  document.getElementById('proj-grid').innerHTML = shown.map(p=>{
+    const badgeClass = p.estado.replace(' ','');
+    let bottom;
+    if(p.estado==="Completado"){
+      bottom = `<div class="proj-bottom"><span class="pct">100%</span><span class="closed-badge">Cerrado</span></div>`;
+    } else if(p.dash===null){
+      bottom = `<div class="proj-bottom"><span class="pct">${p.note?p.note:'Sin avance numérico'}</span><span class="no-dash">Sin dashboard — pendiente de priorizar</span></div>`;
+    } else {
+      const pctLabel = p.pct===null ? (p.note||'—') : p.pct+'%';
+      bottom = `<div class="proj-bottom"><span class="pct">${pctLabel}</span><a class="view-btn" href="${p.dash}">Ver dashboard</a></div>`;
+    }
+    const progWidth = p.pct===null? 0 : p.pct;
+    return `<div class="proj-card">
+      <div class="proj-top">
+        <div><div class="proj-num">Proyecto ${p.num}</div><div class="proj-name">${p.name}</div></div>
+        <span class="badge ${badgeClass}">${p.estado}</span>
+      </div>
+      <div class="progbar"><span style="width:${progWidth}%;background:${estColors[p.estado]}"></span></div>
+      ${bottom}
+    </div>`;
+  }).join('');
+}
+
+new Chart(document.getElementById('donut'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Completado','En Proceso','En Pausa','Pendiente'],
+    datasets: [{
+      data: [
+        projects.filter(p=>p.estado==="Completado").length,
+        projects.filter(p=>p.estado==="En Proceso").length,
+        projects.filter(p=>p.estado==="En Pausa").length,
+        projects.filter(p=>p.estado==="Pendiente").length
+      ],
+      backgroundColor: ['#1BA85D','#C8970A','#4B5BB8','#C8C6BF'],
+      borderWidth: 0
+    }]
+  },
+  options: { plugins:{legend:{position:'bottom', labels:{font:{family:'DM Sans'}}}} }
+});
+
+document.getElementById('footer').textContent = `Portal generado automáticamente el ${new Date().toLocaleDateString('es-GT',{day:'numeric',month:'long',year:'numeric'})} · 11 proyectos activos`;
+
+render();
 </script>
 </body>
 </html>
