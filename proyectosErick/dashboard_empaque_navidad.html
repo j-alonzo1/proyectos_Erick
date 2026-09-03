@@ -62,7 +62,7 @@
   <div class="logo">C</div>
   <div>
     <h1>Planificación Empaque Navidad</h1>
-    <div class="sub">Pricing & BI · Cemaco Guatemala</div>
+    <div class="sub">Pricing & BI · Cemaco Guatemala · Responsable: Erick Lopez</div>
   </div>
   <a class="back-btn" href="portal_erick.html">← Portal</a>
 </div>
@@ -82,9 +82,8 @@
     </div>
     <div class="panel">
       <h2>Alertas activas</h2>
-      <div class="alert">📈 Avance de Fase 1 subió de 29% a 73% (8/11 completadas).</div>
-      <div class="alert">⏳ Pendientes: proveedor de rollos de papel, proveedor de bolsa kraft y creación de nuevo catálogo de códigos de bolsas (Lili).</div>
-      <div class="alert">📌 El número de tareas registradas creció de 7 a 11 en esta actualización del Gantt.</div>
+      <div class="alert" style="background:var(--verde-bg);border-left-color:var(--verde);">✅ Fase 1 completada al 100% (11/11 tareas) — antes 73% (8/11).</div>
+      <div class="alert" style="background:var(--verde-bg);border-left-color:var(--verde);">🏁 Proyecto cerrado. Sin Fase 2 prevista por el momento.</div>
     </div>
   </div>
 
@@ -101,12 +100,12 @@ const tasks = [
   {name:"Consolidación de ajustes por tienda", resp:"Erick", estado:"Completado", fase:"Fase 1"},
   {name:"Sesión con proveedor de pliegos y moñas", resp:"Erick", estado:"Completado", fase:"Fase 1"},
   {name:"Envío de documento con proyecciones ajustadas al proveedor de pliegos y moñas", resp:"Erick", estado:"Completado", fase:"Fase 1"},
-  {name:"Sesión con proveedor de rollos de papel", resp:"—", estado:"Pendiente", fase:"Fase 1"},
+  {name:"Sesión con proveedor de rollos de papel", resp:"Erick", estado:"Completado", fase:"Fase 1"},
   {name:"Sesión con proveedor de materia prima", resp:"—", estado:"Completado", fase:"Fase 1"},
   {name:"Sesión con proveedor de saco reutilizable", resp:"Erick", estado:"Completado", fase:"Fase 1"},
-  {name:"Sesión con proveedor de bolsa kraft", resp:"—", estado:"Pendiente", fase:"Fase 1"},
+  {name:"Sesión con proveedor de bolsa kraft", resp:"Erick", estado:"Completado", fase:"Fase 1"},
   {name:"Sesión con proveedor de bolsa plástica", resp:"Erick", estado:"Completado", fase:"Fase 1"},
-  {name:"Creación de nuevo catálogo de códigos de bolsas", resp:"Lili", estado:"Pendiente", fase:"Fase 1"}
+  {name:"Creación de nuevo catálogo de códigos de bolsas", resp:"Lili", estado:"Completado", fase:"Fase 1"}
 ];
 
 const colors = {Completado:"#1BA85D", "En Proceso":"#C8970A", Pendiente:"#C8C6BF"};
