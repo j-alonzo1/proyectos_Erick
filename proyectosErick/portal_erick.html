@@ -133,7 +133,9 @@ function render(){
     const badgeClass = p.estado.replace(' ','');
     let bottom;
     if(p.estado==="Completado"){
-      bottom = `<div class="proj-bottom"><span class="pct">100%</span><span class="closed-badge">Cerrado</span></div>`;
+      bottom = p.dash
+        ? `<div class="proj-bottom"><span class="closed-badge">Cerrado</span><a class="view-btn" href="${p.dash}">Ver dashboard</a></div>`
+        : `<div class="proj-bottom"><span class="pct">100%</span><span class="closed-badge">Cerrado</span></div>`;
     } else if(p.dash===null){
       bottom = `<div class="proj-bottom"><span class="pct">${p.note?p.note:'Sin avance numérico'}</span><span class="no-dash">Sin dashboard — pendiente de priorizar</span></div>`;
     } else {
