@@ -81,9 +81,9 @@
     </div>
     <div class="panel">
       <h2>Alertas activas</h2>
-      <div class="alert">✅ Piloto de MRP validado con éxito en tienda T004 y replicado a las 25 tiendas.</div>
-      <div class="alert">⏳ Pendiente: automatizar punto de reorden y stock de seguridad (V2), programada para la semana del 5-oct.</div>
-      <div class="alert">📈 Avance actual: 94% (15/16 tareas) — antes 86% (12/14).</div>
+      <div class="alert">✅ Pruebas de QA (tienda → B001 → proveedores) y validación con el especialista de SAP completadas; proceso configurado en PRD.</div>
+      <div class="alert">⏳ Siguiente: cargar vía Datos Maestros los atributos de los SKUs piloto (semana del 19-oct), luego correr pronósticos en PRD (26-oct) y el MRP con validación de resultados (2-nov).</div>
+      <div class="alert">📈 Avance actual: 88% (21/24 tareas) — antes 94% (15/16). Se agregaron 9 tareas y se eliminó "Automatizar punto de reorden y stock de seguridad (V2)".</div>
     </div>
   </div>
 
@@ -110,7 +110,15 @@ const tasks = [
   {name:"Cargar historial de consumo en módulo de pronóstico", resp:"Erick", estado:"Completado"},
   {name:"Identificar transacción correcta para correr proceso delimitado solo a los SKUs de material de empaque", resp:"Erick", estado:"Completado"},
   {name:"Configurar reparto por cuotas, para lanzar OCs a dos proveedores", resp:"Erick", estado:"Completado"},
-  {name:"Automatizar punto de reorden y stock de seguridad (V2)", resp:"Erick", estado:"Pendiente"}
+  {name:"Correr modelo de pronóstico para los SKUs piloto", resp:"Erick", estado:"Completado"},
+  {name:"Realizar pruebas de QA de tienda a B001", resp:"Erick", estado:"Completado"},
+  {name:"Realizar pruebas de QA de B001 hacia proveedores", resp:"Erick", estado:"Completado"},
+  {name:"Realizar pruebas con el especialista de SAP de todo el flujo", resp:"Erick", estado:"Completado"},
+  {name:"Realizar y llenar plantilla de carga de atributos para PRD", resp:"Erick", estado:"Completado"},
+  {name:"Realizar configuraciones necesarias para que funcione el proceso en PRD", resp:"Erick", estado:"Completado"},
+  {name:"Cargar a través de Datos Maestros los atributos para los SKUs piloto", resp:"Erick", estado:"Pendiente"},
+  {name:"Correr pronósticos en PRD para pilotos", resp:"Erick", estado:"Pendiente"},
+  {name:"Correr el proceso de MRP y validar resultados", resp:"Erick", estado:"Pendiente"}
 ];
 
 const colors = {Completado:"#1BA85D", "En Proceso":"#C8970A", Pendiente:"#C8C6BF"};
