@@ -53,7 +53,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .alert-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:.5px solid var(--border);}
 .alert-item:last-child{border-bottom:none;}
 .alert-ico{width:30px;height:30px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;}
-.a-warn{background:var(--amber-bg);}.a-ok{background:var(--green-bg);}.a-risk{background:var(--red-bg);}.a-info{background:var(--blue-bg);}
+.a-warn{background:var(--amber-bg);}.a-pend{background:var(--gray-bg);}.status-banner{background:var(--gray-bg);border-left:4px solid var(--border2);padding:12px 16px;border-radius:var(--radius);font-size:13px;margin-bottom:18px;color:var(--text);}.status-banner strong{color:var(--gray);}.a-ok{background:var(--green-bg);}.a-risk{background:var(--red-bg);}.a-info{background:var(--blue-bg);}
 .alert-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px;}
 .alert-body{font-size:12px;color:var(--text2);line-height:1.4;}
 .task-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px;}
@@ -111,12 +111,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   </div>
   <div class="topbar-right">
     <a href="portal_erick.html" class="back-btn">← Portal</a>
-    <span class="topbar-pill">En proceso</span>
+    <span class="topbar-pill">Pendiente de priorizar</span>
     <span class="topbar-date" id="live-date"></span>
   </div>
 </div>
 
 <div class="main">
+  <div class="status-banner">⏸️ <strong>Proyecto pendiente de priorizar.</strong> Se conserva el avance actual (88%) hasta que se retome.</div>
   <div class="metrics">
     <div class="mc mc-all active-all" id="mc-all" onclick="filter('all',this)">
       <div class="mc-label">Total tareas</div>
@@ -184,6 +185,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
     <div class="card">
       <div class="card-title">Alertas activas</div>
+      <div class="alert-item">
+        <div class="alert-ico a-pend">⏸️</div>
+        <div>
+          <div class="alert-title">Proyecto en pendiente de priorizar</div>
+          <div class="alert-body">Se movió a Pendiente de priorizar el 7-oct-2026; el avance se mantiene en 88%.</div>
+        </div>
+      </div>
       <div class="alert-item">
         <div class="alert-ico a-warn">⚠️</div>
         <div>
